@@ -14,7 +14,7 @@ function initadmin() {
 
         //后台处理程序的地址
 
-        url: 'listall',
+        url: 'admin/listall',
 
         pagination: true,//显示分页工具
 
@@ -102,7 +102,7 @@ function initadmin() {
 
                                     type: "post",
 
-                                    url: "deleteall",//后台处理程序
+                                    url: "admin/deleteall",//后台处理程序
 
                                     data: {
 
@@ -265,7 +265,7 @@ function admininsert() {
 
                 $('#ff').form('submit', {
 
-                    url: "insertSelective",
+                    url: "admin/insertSelective",
 
                     onSubmit: function () {
 

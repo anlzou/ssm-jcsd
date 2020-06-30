@@ -15,50 +15,33 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin.js"></script>
     <script type="text/javascript">
         $(function () {
             /*jquery easyui的代码在这里写*/
             $('#tt').tree({
-
                 onClick : function(node) {
-
                     /*单击导航栏中的管理员列表结点*/
-
                     if(node.id == "adminlistall"){
-
                         /*单击管理员列表时把中间区域的标题设置为管理管理*/
-
                         $(".layout-panel-center .panel-title").text("管理员管理");
                         //动态加js文件
-
                         if(typeof(initadmin) !="function"){
-
                             $.getScript("../js/admin.js",function(){
-
                                 initadmin();
-
                             })
-
                         }else{
-
                             initadmin();
-
                         }
-
                     }
 
                     /*单击导航栏中的单位信息列表结点*/
-
                     if (node.id == "departmentlist") {
-
                         /*单击单位列表时把中间区域的标题设置为单位信息列表*/
-
                         $(".layout-panel-center .panel-title").text("单位信息列表");
-
                     }
 
                     /*单击导航栏中的专业信息列表结点*/
-
                     if (node.id == "categorylist") {
 
                         /*单击专业列表时把中间区域的标题设置为管理管理*/
@@ -103,7 +86,7 @@
 
                         /*单击教材类别信息列表时把中间区域的标题设置为教材类别信息列表*/
 
-                        $(".layout-panel-center .panel-title").text("教材类别信息列表");
+                        $(".layout-panel-center .panel-title").text("专业信息列表");
 
                     }
 

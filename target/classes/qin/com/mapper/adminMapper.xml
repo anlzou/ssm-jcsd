@@ -5,29 +5,18 @@
 <mapper namespace="qin.com.mapper.AdminMapper">
 
     <resultMap id="BaseResultMap" type="qin.com.entity.Admin">
-
         <id column="id" property="id" jdbcType="INTEGER"/>
-
         <result column="name" property="name" jdbcType="VARCHAR"/>
-
         <result column="pass" property="pass" jdbcType="VARCHAR"/>
-
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
-
         <result column="email" property="email" jdbcType="VARCHAR"/>
-
         <result column="qq" property="qq" jdbcType="VARCHAR"/>
-
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
-
         <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
-
     </resultMap>
 
     <sql id="Base_Column_List">
-
     id, name, pass, phone, email, qq, create_time, update_time
-
   </sql>
 
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
@@ -42,12 +31,12 @@
 
     </select>
 
-
+<!--修改查询内容，去掉时间的查询-->
     <select id="selectAll" resultMap="BaseResultMap" parameterType="java.lang.Integer">
 
         select
 
-        <include refid="Base_Column_List"/>
+       id, name, pass, phone, email, qq
 
         from admin
 
