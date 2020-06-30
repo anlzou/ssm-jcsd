@@ -10,3 +10,6 @@
 
 ### Mybatis配置
 [generator.xml](src/resource/generator.xml)
+
+### 注意
+删除数据库的atype字段才可以插入数据
