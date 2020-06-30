@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!--MySQL连接驱动-->
+	<classPathEntry location="mysql-connector-5.1.8.jar" />
+	<context id="sysGenerator" targetRuntime="MyBatis3">
+
+		 <!-- 注释 -->  
+        <commentGenerator>  
+            <property name="suppressAllComments" value="true" /><!-- 是否取消注释 -->  
+            <property name="suppressDate" value="true" /><!-- 是否生成注释代时间戳 -->  
+        </commentGenerator> 
+		<!--数据库链接URL，用户名、密码 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/jcsd?characterEncoding=utf8"
+			userId="root" password="admin">
+		</jdbcConnection>
+	
+		<!-- 生成实体类地址  targetProject是生成文件的存放位置，targetPackage是生成文件的所在packet--> 
+		<javaModelGenerator targetPackage="qin.com.entity"
+			targetProject="src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<!-- 生成mapxml文件 -->
+		<sqlMapGenerator targetPackage="qin.com.mapper"
+			targetProject="src\main\resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<!-- 生成mapxml对应client，也就是接口dao -->   
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="qin.com.mapper" targetProject="src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		<!-- 配置表 -->  
+        <!--tableName对应表名，domainObjectName是实体类名 xxxxxByExample这几个是是否生成选择性增删改查mapper--> 
+		<table tableName="%" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table>
+		<!--
+		<table tableName="admin" domainObjectName="Admin" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table>
+		<table tableName="category" domainObjectName="Category" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table>
+		<table tableName="classse" domainObjectName="Classse" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table>
+		<table tableName="course" domainObjectName="Course" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table>
+		<table tableName="department" domainObjectName="Department" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table>
+		<table tableName="jc" domainObjectName="Jc" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table>
+		<table tableName="levels" domainObjectName="Levels" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table>
+		<table tableName="major" domainObjectName="Major" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table>
+		<table tableName="publisher" domainObjectName="Publisher" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table>
+		<table tableName="teacher" domainObjectName="Teacher" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table>
+		-->
+	</context>
+</generatorConfiguration>
