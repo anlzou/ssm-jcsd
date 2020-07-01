@@ -183,131 +183,68 @@ function admininsert() {
 }
 
 function adminupdate(row) {
-
     /*判断页面中是否存在id="dd"元素，若存在则进行删除*/
-
     if ($("#dd") != null) {
-
         $("#dd").remove();
-
     }
-
     /*在页面中id="tab"的元素中添加一个id="dd"的div元素*/
-
     $("#tab").append("<div id='dd'></div>");
-
     /*以页面中的id="dd"的元素作为对话框的内容*/
-
     $('#dd').dialog({
-
         title: '更新管理员信息',//对话框的标题
-
         width: 300,//对话框的宽度
-
         closed: false,
-
         cache: false,//不允许有缓冲
-
         modal: true,//采用模式，即必须关闭对话框后才能做别的操作
-
         buttons: [{ //为对话框添加底部按钮
-
             text: '保存',
-
             handler: function () {
-
                 $('#ff').form('submit', {
-
-                    url: "updateByPrimaryKeySelective",
-
+                    url: "admin/updateByPrimaryKeySelective",
                     onSubmit: function () {
-
                         //在这里编写表单字段验证
-
                     },
-
                     success: function (data) {
-
                         $('#dd').dialog("close");//关闭当前添加窗口
-
                         $('#dg').datagrid("reload");//重新装入表格的内容
-
                     }
-
                 });
-
-
             }
-
         }, {
-
             text: '关闭',
-
             handler: function () {
-
                 $('#dd').dialog("close");
-
             }
-
         }]
-
     });
 
     //创建添加课程安排表单
-
     var str = ' <form id="ff" method="post">\n' +
-
         '        <table>\n' +
-
         '            <tr>\n' +
-
         '                <td>管理员帐号</td>\n' +
-
         '                <td><input type="text" id="name" name="name" /> </td>\n' +
-
         '            </tr>\n' +
-
         '            <tr>\n' +
-
         '                <td>管理员密码</td>\n' +
-
         '                <td><input type="password" id="pass" name="pass" /> </td>\n' +
-
         '            </tr>\n' +
-
         '            <tr>\n' +
-
         '                <td>管理员电话</td>\n' +
-
         '                <td><input type="text" id="phone" name="phone" /> </td>\n' +
-
         '            </tr>\n' +
-
         '            <tr>\n' +
-
         '                <td>管理员邮箱</td>\n' +
-
         '                <td><input type="text" id="email" name="email" /> </td>\n' +
-
         '            </tr>\n' +
-
         '            <tr>\n' +
-
         '                <td>管理员qq</td>\n' +
-
         '                <td><input type="text" id="qq" name="qq" /><input type="hidden" id="id" name="id" /> </td>\n' +
-
         '            </tr>\n' +
-
         '        </table>\n' +
-
         '    </form>';
 
     //把表单添加到对话框中
-
     $("#dd").html(str);
-
     $('#ff').form('load', row[0]);//为表单加载数据。
-
-
 }

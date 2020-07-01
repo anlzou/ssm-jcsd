@@ -42,7 +42,9 @@ public class AdminController {
     public ServerResponse deleteall(String id) {
         String[] deleteids = id.split(",");//把客户端传送过来的字符串（一般为“1，2，3，4”）转换成数组
         if (deleteids != null && deleteids.length > 0) {
+            System.out.println("deleteall ok!======1");
             if (adminService.deleteByList(deleteids) > 0) {
+                System.out.println("deleteall ok!======2");
                 return ServerResponse.createBySuccess(ResponseCode.SUCCESS.getCode(), "删除管理员成功");
             } else {
                 return ServerResponse.createByErrorCodeMessage(ResponseCode.ERROR.getCode(), "删除数据失败");
