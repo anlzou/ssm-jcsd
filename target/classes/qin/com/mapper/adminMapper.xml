@@ -166,8 +166,8 @@
 
     <delete id="deleteByList" parameterType="java.lang.String">
         delete from admin
-        where name in
-        //批量删除数据
+        where id in
+--         //批量删除数据
         <foreach collection="deleteids" item="item" open="(" separator=","
                  close=")">
             #{item}
