@@ -31,4 +31,6 @@ public interface AdminMapper {
     boolean checkPhoneAndPass(String phone, String pass);
 
     int deleteByList(@Param("deleteids") String[] deleteids); //批量删除数据，要删除数据存放在一个字符数组中
+
+    int deleteByPrimaryName(String string);
 }

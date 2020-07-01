@@ -40,15 +40,26 @@ public class AdminController {
     @RequestMapping("/deleteall")
     @ResponseBody
     public ServerResponse deleteall(String id) {
+        System.out.println(id);
+//        String[] deleteids = id.split(",");//把客户端传送过来的字符串（一般为“1，2，3，4”）转换成数组
         String[] deleteids = id.split(",");//把客户端传送过来的字符串（一般为“1，2，3，4”）转换成数组
+//        for (String i:deleteids) {
+//            System.out.println(i);
+//        }
+//        System.out.println(deleteids);
         if (deleteids != null && deleteids.length > 0) {
             System.out.println("deleteall ok!======1");
-            if (adminService.deleteByList(deleteids) > 0) {
-                System.out.println("deleteall ok!======2");
-                return ServerResponse.createBySuccess(ResponseCode.SUCCESS.getCode(), "删除管理员成功");
-            } else {
-                return ServerResponse.createByErrorCodeMessage(ResponseCode.ERROR.getCode(), "删除数据失败");
+//            if (adminService.deleteByList(deleteids) > 0) {
+//            adminService.deleteByList(deleteids);
+            for (String i : deleteids) {
+                adminService.deleteByPrimaryName(i);
             }
+            System.out.println("deleteall ok!======2");
+            
+            return ServerResponse.createBySuccess(ResponseCode.SUCCESS.getCode(), "删除管理员成功");
+//            } else {
+//                return ServerResponse.createByErrorCodeMessage(ResponseCode.ERROR.getCode(), "删除数据失败");
+//            }
         } else {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.ERROR.getCode(), "删除数据失败");
         }

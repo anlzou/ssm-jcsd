@@ -46,7 +46,7 @@ function initadmin() {
                         var strid = "";
                         //下面是遍历用户所选择的数据行所对应的id主关键字，
                         $(row).each(function (index, item) {
-                            strid += item["id"] + ",";//把用户选择的数据行的id保串连起来构成如“1，2，3，”这里表示用户选择了id为1，2，3的数据行
+                            strid += item["name"] + ",";//把用户选择的数据行的id保串连起来构成如“1，2，3，”这里表示用户选择了id为1，2，3的数据行
                         });
                         strid = strid.substring(0, strid.length - 1);//把数据行最后的分号去掉
                         $.messager.confirm('确认', '您确认想要删除记录吗？', function (r) {

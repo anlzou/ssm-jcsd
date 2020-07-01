@@ -99,4 +99,9 @@ public class AdminServiceImpl implements AdminService {
     public int deleteByList(String[] iddeleteids) {
         return adminMapper.deleteByList(iddeleteids);
     }
+
+    @Override
+    public int deleteByPrimaryName(String name) {
+        return adminMapper.deleteByPrimaryName(name);
+    }
 }
