@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-
 <mapper namespace="qin.com.mapper.AdminMapper">
-
     <resultMap id="BaseResultMap" type="qin.com.entity.Admin">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
@@ -20,255 +17,155 @@
   </sql>
 
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-
         select
-
         <include refid="Base_Column_List"/>
-
         from admin
-
         where id = #{id,jdbcType=INTEGER}
-
     </select>
 
 <!--修改查询内容，去掉时间的查询-->
     <select id="selectAll" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-
         select
-
        id, name, pass, phone, email, qq
-
         from admin
-
     </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-
     delete from admin
-
     where id = #{id,jdbcType=INTEGER}
-
   </delete>
 
     <insert id="insert" parameterType="qin.com.entity.Admin">
-
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
-
             SELECT LAST_INSERT_ID()
-
         </selectKey>
-
         insert into admin (name, pass, phone,
-
         email, qq, create_time,
-
         update_time)
-
         values (#{name,jdbcType=VARCHAR}, #{pass,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR},
-
         #{email,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, now(),
-
         now())
-
     </insert>
 
     <insert id="insertSelective" parameterType="qin.com.entity.Admin">
-
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
-
             SELECT LAST_INSERT_ID()
-
         </selectKey>
-
         insert into admin
-
         <trim prefix="(" suffix=")" suffixOverrides=",">
-
             <if test="name != null">
-
                 name,
-
             </if>
 
             <if test="pass != null">
-
                 pass,
-
             </if>
 
             <if test="phone != null">
-
                 phone,
-
             </if>
 
             <if test="email != null">
-
                 email,
-
             </if>
 
             <if test="qq != null">
-
                 qq,
-
             </if>
 
             <if test="createTime != null">
-
                 createTime,
-
             </if>
 
             <if test="updateTime != null">
-
                 updateTime,
-
             </if>
-
         </trim>
 
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-
             <if test="name != null">
-
                 #{name,jdbcType=VARCHAR},
-
             </if>
 
             <if test="pass != null">
-
                 #{pass,jdbcType=VARCHAR},
-
             </if>
 
             <if test="phone != null">
-
                 #{phone,jdbcType=VARCHAR},
-
             </if>
 
             <if test="email != null">
-
                 #{email,jdbcType=VARCHAR},
-
             </if>
 
             <if test="qq != null">
-
                 #{qq,jdbcType=VARCHAR},
-
             </if>
 
             <if test="createTime != null">
-
                 now(),
-
             </if>
 
             <if test="updateTime != null">
-
                 now(),
-
             </if>
-
         </trim>
 
     </insert>
-
     <update id="updateByPrimaryKeySelective" parameterType="qin.com.entity.Admin">
-
         update admin
-
         <set>
-
             <if test="name != null">
-
                 name = #{name,jdbcType=VARCHAR},
-
             </if>
 
             <if test="pass != null">
-
                 pass = #{pass,jdbcType=VARCHAR},
-
             </if>
 
             <if test="phone != null">
-
                 phone = #{phone,jdbcType=VARCHAR},
-
             </if>
 
             <if test="email != null">
-
                 email = #{email,jdbcType=VARCHAR},
-
             </if>
 
             <if test="qq != null">
-
                 qq = #{qq,jdbcType=VARCHAR},
-
             </if>
 
             <if test="createTime != null">
-
                 create_time = #{createTime,jdbcType=TIMESTAMP},
-
             </if>
 
             <if test="updateTime != null">
-
                 now(),
-
             </if>
-
         </set>
-
         where id = #{id,jdbcType=INTEGER}
-
     </update>
 
     <update id="updateByPrimaryKey" parameterType="qin.com.entity.Admin">
-
     update admin
-
     set name = #{name,jdbcType=VARCHAR},
-
       pass = #{pass,jdbcType=VARCHAR},
-
       phone = #{phone,jdbcType=VARCHAR},
-
       email = #{email,jdbcType=VARCHAR},
-
       qq = #{qq,jdbcType=VARCHAR},
-
       create_time = #{createTime,jdbcType=TIMESTAMP},
-
       update_time = now()
-
     where id = #{id,jdbcType=INTEGER}
-
   </update>
 
-    <!--  add  -->
     <delete id="deleteByList" parameterType="java.lang.String">
-
         delete from admin
-
         where id in
-
         //批量删除数据
-
         <foreach collection="deleteids" item="item" open="(" separator=","
-
                  close=")">
-
             #{item}
-
         </foreach>
-
     </delete>
-
 </mapper>
