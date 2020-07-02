@@ -11,27 +11,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import qin.com.common.ServerResponse;
 import qin.com.entity.Admin;
 import qin.com.service.AdminService;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 @Controller //这是控制器的的注解，代码当前类为一个控制器
 //@RequestMapping("/login")  //这个注解表示控制器的映射的地址为服务器地址+admin
 public class LoginController {
-    int loginYN = 0;
+    int logging = 0;//登录状态，0为未登录，1为登录
     @Resource(name = "adminServiceImpl")  //这个注解表示自动注入adminSeerviceImpl业务实现类
     @Autowired      //该注解表示后紧跟的变量进行封装，即自动产生getter和setter
     private AdminService adminService;
 
-    /*跳转到管理员的首页*/
+    /*跳转到管理员的首页，唯一入口，前提是先登录*/
     @RequestMapping("/index")
     public String index() {
-        if (loginYN == 1)
+        if (logging == 1)
             return "adminindex";
         else return null;
     }
@@ -39,7 +35,7 @@ public class LoginController {
     /*跳转到管理员的登录*/
     @RequestMapping("/login")
     public String login() {
-        loginYN = 0;
+        logging = 0;
         return "login/login";
     }
 
@@ -62,7 +58,7 @@ public class LoginController {
         Admin admin = adminService.selectByPrimaryNameAndPass(name, password);//按照名和密码进行查询
 //        System.out.println(admin);
         if (admin != null) {
-            loginYN = 1;
+            logging = 1;
             System.out.println("login++++++++++yes");
             return "index";
         } else {

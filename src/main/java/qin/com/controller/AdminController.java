@@ -34,7 +34,7 @@ public class AdminController {
 //        System.out.println(deleteids);
         if (deleteids != null && deleteids.length > 0) {
             System.out.println("deleteall ok!======1");
-            if (adminService.deleteByList(deleteids) > 0) {
+            if (adminService.deleteByList(deleteids) > 0) {//按照列表删除
             adminService.deleteByList(deleteids);
 //            for (String i : deleteids) {
 //                adminService.deleteByPrimaryName(i);//按照名称删除
@@ -174,7 +174,6 @@ public class AdminController {
     }
 
     @RequestMapping("/checkEmail")
-
     @ResponseBody
     public ServerResponse checkEmail(String email) {
         System.out.println(email);
