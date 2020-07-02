@@ -36,7 +36,7 @@
                     /*单击导航栏中的专业信息列表结点*/
                     if (node.id == "categorylist") {
                         /*单击专业列表时把中间区域的标题设置为管理管理*/
-                        $(".layout-panel-center .panel-title").text("专业信息列表");
+                        $(".layout-panel-center .panel-title").text("教材类别信息列表");
                     }
 
                     /*单击导航栏中的班级信息列表结点*/
@@ -84,7 +84,20 @@
                     /*单击导航栏中的教材征订信息列表结点*/
                     if (node.id == "jclist") {
                         /*单击教材征订信息列表时把中间区域的标题设置为教材征订信息列表*/
-                        $(".layout-panel-center .panel-title").text("教材征订信息列表");
+                        $(".layout-panel-center .panel-title").text("课程安排信息列表");
+                    }
+
+                    /*单击导航栏中的教材征订信息列表结点*/
+                    if (node.id == "adminlist") {
+                        /*单击教材征订信息列表时把中间区域的标题设置为教材征订信息列表*/
+                        $(".layout-panel-center .panel-title").text("修改信息列表");
+                    }
+
+                    /*单击导航栏中的教材征订信息列表结点*/
+                    if (node.id == "exitlist") {
+                        /*单击教材征订信息列表时把中间区域的标题设置为教材征订信息列表*/
+                        $(".layout-panel-center .panel-title").text("退出系统");
+                        self.location = "/jcsdproject_war_exploded/login"
                     }
                 }
             });

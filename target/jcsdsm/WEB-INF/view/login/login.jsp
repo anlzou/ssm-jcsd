@@ -12,7 +12,8 @@
 </head>
 <body style="text-align: center">
 <div style="width: 500px ;margin-left:auto;margin-right:auto;margin-top:300px">
-    <div class="easyui-panel" title="登录" style="width:100%;max-width:400px;padding:30px 60px;">
+    <div class="easyui-panel" title="教材征订系统-登录" style="width:100%;max-width:400px;padding:30px 60px;">
+        <h1 style="text-align: center">登录</h1>
         <form id="ff" method="post">
             <div style="margin-bottom:20px">
                 <input class="easyui-textbox" id="name" name="name" style="width:100%"
@@ -28,7 +29,7 @@
             <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()" style="width:80px">清除</a>
         </div>
         <div style="text-align: right">
-            <p><a id="to_register" href="/jcsdproject_war_exploded/register">注册</a></p>
+            <p>没有账号？<a id="to_register" href="/jcsdproject_war_exploded/register">注册</a></p>
         </div>
     </div>
 </div>

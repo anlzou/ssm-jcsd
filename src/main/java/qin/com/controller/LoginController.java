@@ -39,6 +39,7 @@ public class LoginController {
     /*跳转到管理员的登录*/
     @RequestMapping("/login")
     public String login() {
+        loginYN = 0;
         return "login/login";
     }
 
@@ -48,39 +49,44 @@ public class LoginController {
         return "login/register";
     }
 
+    /**
+     * 登录控制器
+     */
     @RequestMapping("/selectlogin")
     @ResponseBody
     public String selectlogin(String name, String password) {
         System.out.println(name);
         System.out.println(password);
-        password = DigestUtils.md5DigestAsHex(password.getBytes());//单向加密？
+        password = DigestUtils.md5DigestAsHex(password.getBytes());//单向加密
 //        System.out.println(password);
-        Admin admin = adminService.selectByPrimaryNameAndPass(name,password);//按照名称删除
+        Admin admin = adminService.selectByPrimaryNameAndPass(name, password);//按照名和密码进行查询
 //        System.out.println(admin);
         if (admin != null) {
             loginYN = 1;
-            System.out.println("++++++++++yes");
-//            return ServerResponse.createBySuccess(0, admin);
+            System.out.println("login++++++++++yes");
             return "index";
         } else {
             return "error";
         }
     }
 
+    /**
+     * 注册控制器
+     */
     @RequestMapping("/insertRegister")
     @ResponseBody
     public String insertRegister(String name, String password) {
+        Admin admin = new Admin();
         System.out.println(name);
         System.out.println(password);
-        password = DigestUtils.md5DigestAsHex(password.getBytes());//单向加密？
+        password = DigestUtils.md5DigestAsHex(password.getBytes());//单向加密
 //        System.out.println(password);
-        int ok = adminService.insertRegister(name,password);//按照名称删除
-        System.out.println(ok);
-        if (ok != 0) {
-            loginYN = 1;
-            System.out.println("++++++++++yes");
-//            return ServerResponse.createBySuccess(0, admin);
-            return "index";
+//        int ok = adminService.insertRegister(name,password);//按照名称和密码进行插入
+        admin.setName(name);
+        admin.setPass(password);
+        if (adminService.insert(admin) > 0) {
+            System.out.println("register++++++++++yes");
+            return "ok";
         } else {
             return "error";
         }

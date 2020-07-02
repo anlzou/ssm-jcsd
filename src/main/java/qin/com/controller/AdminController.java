@@ -19,7 +19,7 @@ import java.util.List;
 
 
 @Controller //这是控制器的的注解，代码当前类为一个控制器
-@RequestMapping("/admin")  //这个注解表示控制器的映射的地址为服务器地址+admin
+//@RequestMapping("/admin")  //这个注解表示控制器的映射的地址为服务器地址+admin
 public class AdminController {
 
     @Resource(name = "adminServiceImpl")  //这个注解表示自动注入adminSeerviceImpl业务实现类
