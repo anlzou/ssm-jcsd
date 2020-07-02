@@ -35,12 +35,10 @@ public class AdminController {
         if (deleteids != null && deleteids.length > 0) {
             System.out.println("deleteall ok!======1");
             if (adminService.deleteByList(deleteids) > 0) {//按照列表删除
-            adminService.deleteByList(deleteids);
 //            for (String i : deleteids) {
 //                adminService.deleteByPrimaryName(i);//按照名称删除
 //            }
             System.out.println("deleteall ok!======2");
-
             return ServerResponse.createBySuccess(ResponseCode.SUCCESS.getCode(), "删除管理员成功");
             } else {
                 return ServerResponse.createByErrorCodeMessage(ResponseCode.ERROR.getCode(), "删除数据失败");
@@ -122,6 +120,7 @@ public class AdminController {
         admin.setPhone(record.getPhone());
         admin.setEmail(record.getEmail());
         admin.setQq(record.getQq());
+        System.out.println("admin更新数据=="+admin.getId()+"=="+admin.getName());
         if (adminService.updateByPrimaryKeySelective(admin) > 0) {
             return ServerResponse.createBySuccess("更新管理数据成功", admin);
         } else {

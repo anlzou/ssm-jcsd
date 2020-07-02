@@ -36,24 +36,24 @@
         from admin
     </select>
 
-<!--  login-->
-<!--    <select id="checkNameAndPass" resultMap="BaseResultMap" parameterType="java.lang.String">-->
-<!--        select id, name, pass, phone, email, qq-->
-<!--        from admin-->
-<!--        where name = #{name ,jdbcType=VARCHAR} and pass = #{pass,jdbcType=VARCHAR}-->
-<!--    </select>-->
+    <!--  login-->
+    <!--    <select id="checkNameAndPass" resultMap="BaseResultMap" parameterType="java.lang.String">-->
+    <!--        select id, name, pass, phone, email, qq-->
+    <!--        from admin-->
+    <!--        where name = #{name ,jdbcType=VARCHAR} and pass = #{pass,jdbcType=VARCHAR}-->
+    <!--    </select>-->
 
-<!--    <select id="checkAdmin" resultMap="BaseResultMap" parameterType="java.lang.String">-->
-<!--        select id, name, pass, phone, email, qq-->
-<!--        from admin-->
-<!--        where name = #{id,jdbcType=VARCHAR}-->
-<!--    </select>-->
+    <!--    <select id="checkAdmin" resultMap="BaseResultMap" parameterType="java.lang.String">-->
+    <!--        select id, name, pass, phone, email, qq-->
+    <!--        from admin-->
+    <!--        where name = #{id,jdbcType=VARCHAR}-->
+    <!--    </select>-->
 
-<!--    <select id="checkPass" resultMap="BaseResultMap" parameterType="java.lang.String">-->
-<!--        select id, name, pass, phone, email, qq-->
-<!--        from admin-->
-<!--        where pass = #{pass,jdbcType=VARCHAR}-->
-<!--    </select>-->
+    <!--    <select id="checkPass" resultMap="BaseResultMap" parameterType="java.lang.String">-->
+    <!--        select id, name, pass, phone, email, qq-->
+    <!--        from admin-->
+    <!--        where pass = #{pass,jdbcType=VARCHAR}-->
+    <!--    </select>-->
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from admin
@@ -192,7 +192,7 @@
     <delete id="deleteByList" parameterType="java.lang.String">
         delete from admin
         where id in
---         //批量删除数据
+        -- //批量删除数据
         <foreach collection="deleteids" item="item" open="(" separator=","
                  close=")">
             #{item}

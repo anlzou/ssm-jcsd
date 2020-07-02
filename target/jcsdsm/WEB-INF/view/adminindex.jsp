@@ -10,6 +10,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/easyui-lang-zh_CN.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/category.js"></script>
     <script type="text/javascript">
         $(function () {
             /*jquery easyui的代码在这里写*/
@@ -37,6 +38,14 @@
                     if (node.id == "categorylist") {
                         /*单击专业列表时把中间区域的标题设置为管理管理*/
                         $(".layout-panel-center .panel-title").text("教材类别信息列表");
+                        //动态加js文件
+                        if(typeof(initcategory) !="function"){
+                            $.getScript("../js/category.js",function(){
+                                initcategory();
+                            })
+                        }else{
+                            initcategory();
+                        }
                     }
 
                     /*单击导航栏中的班级信息列表结点*/
