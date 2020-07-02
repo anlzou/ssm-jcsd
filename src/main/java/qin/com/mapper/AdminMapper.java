@@ -24,7 +24,7 @@ public interface AdminMapper {
 
     int checkPass(String pass);
 
-    boolean checkNameAndPass(String name, String pass);
+//    boolean checkNameAndPass(String name, String pass);
 
     boolean checkEmailAndPass(String email, String pass);
 
@@ -33,4 +33,10 @@ public interface AdminMapper {
     int deleteByList(@Param("deleteids") String[] deleteids); //批量删除数据，要删除数据存放在一个字符数组中
 
     int deleteByPrimaryName(String string);
+
+    Admin selectByPrimaryNameAndPass(@Param("name") String name, @Param("pass") String pass);
+
+    boolean checkNameAndPass(@Param("name") String name,@Param("pass") String pass);//用户和密码进行查询
+
+    int insertRegister(String name, String pass);
 }

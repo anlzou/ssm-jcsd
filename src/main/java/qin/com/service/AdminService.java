@@ -18,11 +18,15 @@ public interface AdminService {
     int checkEmail(@Param("Email") String email); //邮箱进行查询
     int checkPhone(@Param("phone") String phone); //电话进行查询
     int checkPass(@Param("pass") String pass);  //密码进行查询
-    boolean checkNameAndPass(String name,String pass);//用户和密码进行查询
+    boolean checkNameAndPass(@Param("name")String name,@Param("pass")String pass);//用户和密码进行查询
     boolean checkEmailAndPass(String email,String pass);
     boolean checkPhoneAndPass(String phone,String pass);
 
     int deleteByList(String[] iddeleteids);  //批量删除数据，要删除数据存放在一个字符数组中
 
     int deleteByPrimaryName(String id);
+
+    Admin selectByPrimaryNameAndPass(String name, String pass);//登录
+
+    int insertRegister(String name, String pass);//注册
 }

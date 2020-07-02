@@ -71,6 +71,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public boolean checkNameAndPass(String name, String pass) {
         if ((checkAdmin(name) > 0) && (checkPass(pass) > 0)) {
+//        if (checkNameAndPass(name,pass)){
             return true;
         } else {
             return false;
@@ -103,5 +104,15 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public int deleteByPrimaryName(String name) {
         return adminMapper.deleteByPrimaryName(name);
+    }
+
+    @Override
+    public Admin selectByPrimaryNameAndPass(String name, String pass) {
+        return adminMapper.selectByPrimaryNameAndPass(name,pass);
+    }
+
+    @Override
+    public int insertRegister(String name, String pass) {
+        return adminMapper.insertRegister(name,pass);
     }
 }

@@ -9,7 +9,7 @@ function initadmin() {
     /*下面采用jquery easyui的datagrie控制进行显示管理员的列表*/
     $('#dg').datagrid({
         //后台处理程序的地址
-        url: 'admin/listall',
+        url: 'listall',
         pagination: true,//显示分页工具
         pageNumber: 1,//表示显示第几页，第一页
         pageSize: 10,//表示每页显示的记录个数
@@ -53,7 +53,7 @@ function initadmin() {
                             if (r) { //若确认要删除，则采用异步方式把要删除的数据行对应的id串传送给后台进行处理
                                 $.ajax({
                                     type: "post",
-                                    url: "admin/deleteall",//后台处理程序
+                                    url: "deleteall",//后台处理程序
                                     data: {
                                         id: strid //要删除数据行对应的id字符串
                                     },
@@ -135,7 +135,7 @@ function admininsert() {
             text: '保存',
             handler: function () {
                 $('#ff').form('submit', {
-                    url: "admin/insertSelective",
+                    url: "insertSelective",
                     onSubmit: function () {
                         //在这里编写表单字段验证
                     },
@@ -200,7 +200,7 @@ function adminupdate(row) {
             text: '保存',
             handler: function () {
                 $('#ff').form('submit', {
-                    url: "admin/updateByPrimaryKeySelective",
+                    url: "updateByPrimaryKeySelective",
                     onSubmit: function () {
                         //在这里编写表单字段验证
                     },

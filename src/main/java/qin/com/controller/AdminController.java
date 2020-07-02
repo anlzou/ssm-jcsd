@@ -26,17 +26,6 @@ public class AdminController {
     @Autowired      //该注解表示后紧跟的变量进行封装，即自动产生getter和setter
     private AdminService adminService;
 
-    /*跳转到管理员的首页*/
-    @RequestMapping("/index")
-    public String index() {
-        return "adminindex";
-    }
-
-    @RequestMapping("/adminlist")
-    public String adminlist() {
-        return "adminlist";
-    }
-
     @RequestMapping("/deleteall")
     @ResponseBody
     public ServerResponse deleteall(String id) {
@@ -78,8 +67,8 @@ public class AdminController {
     public ServerResponse insert(Admin record) {//管理员的信息应该是由客户端传送过来
         Admin admin = new Admin();
         admin.setName(record.getName());
-//        admin.setPass(DigestUtils.md5DigestAsHex(record.getPass().getBytes()));//单向加密？
-        admin.setPass(record.getPass());
+        admin.setPass(DigestUtils.md5DigestAsHex(record.getPass().getBytes()));//单向加密,无法解密
+//        admin.setPass(record.getPass());
         admin.setPhone(record.getPhone());
         admin.setEmail(record.getEmail());
         admin.setQq(record.getQq());
@@ -96,8 +85,8 @@ public class AdminController {
     public ServerResponse insertSelective(Admin record) {
         Admin admin = new Admin();
         admin.setName(record.getName());
-//        admin.setPass(DigestUtils.md5DigestAsHex(record.getPass().getBytes()));//单向加密？
-        admin.setPass(record.getPass());
+        admin.setPass(DigestUtils.md5DigestAsHex(record.getPass().getBytes()));//单向加密，无法解密
+//        admin.setPass(record.getPass());
         admin.setPhone(record.getPhone());
         admin.setEmail(record.getEmail());
         admin.setQq(record.getQq());
@@ -128,8 +117,8 @@ public class AdminController {
         admin.setId(record.getId());//更新操作必须要有id主关键字段
         admin.setName(record.getName());
         //采用pring mvc的Digestutils.md5DigestAsHex()方法对密码进行加密
-//        admin.setPass(DigestUtils.md5DigestAsHex(record.getPass().getBytes()));
-        admin.setPass(record.getPass());
+        admin.setPass(DigestUtils.md5DigestAsHex(record.getPass().getBytes()));
+//        admin.setPass(record.getPass());
         admin.setPhone(record.getPhone());
         admin.setEmail(record.getEmail());
         admin.setQq(record.getQq());
@@ -149,7 +138,7 @@ public class AdminController {
         admin.setName(record.getName());
         //采用pring mvc的Digestutils.md5DigestAsHex()方法对密码进行加密
         admin.setPass(DigestUtils.md5DigestAsHex(record.getPass().getBytes()));
-        admin.setPass(record.getPass());
+//        admin.setPass(record.getPass());
         admin.setPhone(record.getPhone());
         admin.setEmail(record.getEmail());
         admin.setQq(record.getQq());
@@ -165,6 +154,7 @@ public class AdminController {
     @ResponseBody
     public ServerResponse listall(HttpServletRequest request, HttpServletResponse response) {
         List<Admin> adminlist = adminService.selectAll();
+        System.out.println(adminlist);
         if (adminlist.size() > 0) {
             return ServerResponse.createBySuccess(0, adminlist);
         } else {
