@@ -16,4 +16,6 @@ public interface CategoryService {
     int deleteByList(String[] iddeleteids);
 
     int updateByPrimaryKeySelective(Category record);
+
+    int updateByPrimaryName(String name_old, String name_new);
 }

@@ -93,4 +93,11 @@
             #{item}
         </foreach>
     </delete>
+
+    <update id="updateByPrimaryName" parameterType="java.lang.String">
+    update category
+    set name = #{name_new,jdbcType=VARCHAR},
+      update_time = now()
+      where name = #{name_old ,jdbcType=VARCHAR}
+  </update>
 </mapper>

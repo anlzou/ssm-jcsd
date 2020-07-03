@@ -40,7 +40,7 @@
                         $(".layout-panel-center .panel-title").text("教材类别信息列表");
                         //动态加js文件
                         if(typeof(initcategory) !="function"){
-                            $.getScript("../js/category.js",function(){
+                            $.getScript("${pageContext.request.contextPath}/js/category.js",function(){
                                 initcategory();
                             })
                         }else{

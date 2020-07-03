@@ -58,4 +58,9 @@ public class CategoryServiceImpl implements CategoryService {
     public int updateByPrimaryKeySelective(Category record) {
         return categoryMapper.updateByPrimaryKeySelective(record);
     }
+
+    @Override
+    public int updateByPrimaryName(String name_old, String name_new) {
+        return categoryMapper.updateByPrimaryName(name_old,name_new);
+    }
 }

@@ -64,17 +64,19 @@ public class CategoryController {
     /**
      * 更新
      * not
-     * */
+     */
     @RequestMapping("/updateByPrimaryKeySelectiveCategory")
     @ResponseBody
     public ServerResponse updateByPrimaryKeySelective(Category record) {
         Category category = new Category();
         category.setId(record.getId());//更新操作必须要有id主关键字段
         category.setName(record.getName());
-        System.out.println("category更新数据=="+category.getId()+"=="+category.getName());
+        System.out.println("category更新数据==" + category.getId() + "==" + category.getName());
+//        System.out.println("name_old:+"+name_old);
+//        if (categoryService.updateByPrimaryName(name_old,category.getName()) > 0) {
         if (categoryService.updateByPrimaryKeySelective(category) > 0) {
             System.out.println("category表更新成功");
-            return ServerResponse.createBySuccess("更新管理数据成功", category);
+            return ServerResponse.createBySuccess("更新管理数据成功", record);
         } else {
             return ServerResponse.createByErrorMessage("更新管理数据失败");
         }
@@ -83,7 +85,7 @@ public class CategoryController {
     /**
      * 插入数据
      * ok
-     * */
+     */
     @RequestMapping("/insertSelectiveCategory")
     @ResponseBody
     public ServerResponse insertSelective(Admin record) {

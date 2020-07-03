@@ -17,4 +17,6 @@ public interface CategoryMapper {
     int deleteByList(@Param("deleteids") String[] deleteids);
 
     int updateByPrimaryKeySelective(Category record);
+
+    int updateByPrimaryName(@Param("name_old") String name_old, @Param("name_new") String name_new);
 }

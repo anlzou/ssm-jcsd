@@ -62,8 +62,7 @@
                 name = #{name,jdbcType=VARCHAR},
             </if>
             <if test="createTime != null">
-                -- create_time = #{createTime,jdbcType=TIMESTAMP},
-                now(),
+                create_time = #{createTime,jdbcType=TIMESTAMP},
             </if>
             <if test="updateTime != null">
                 now(),
@@ -94,4 +93,11 @@
             #{item}
         </foreach>
     </delete>
+
+    <update id="updateByPrimaryName" parameterType="java.lang.String">
+    update category
+    set name = #{name_new,jdbcType=VARCHAR},
+      update_time = now()
+      where name = #{name_old ,jdbcType=VARCHAR}
+  </update>
 </mapper>

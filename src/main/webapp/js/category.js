@@ -167,8 +167,12 @@ function categoryupdate(row) {
         buttons: [{ //为对话框添加底部按钮
             text: '保存',
             handler: function () {
+                // var name_old = $('#name').val();
                 $('#ff').form('submit', {
                     url: "updateByPrimaryKeySelectiveCategory",
+                    // data: {
+                    //     // name: name_old
+                    // },
                     onSubmit: function () {
                         //在这里编写表单字段验证
                     },
@@ -191,8 +195,9 @@ function categoryupdate(row) {
         '        <table>\n' +
         '            <tr>\n' +
         '                <td>单位信息</td>\n' +
-        '                <td><input type="text" id="name" name="name" /> </td>\n' +
+        '                <td><input type="text" id="name" name="name" /><input type="hidden" id="id" name="id" /></td>\n' +
         '            </tr>\n' +
+        '        </table>\n' +
         '    </form>';
 
     //把表单添加到对话框中

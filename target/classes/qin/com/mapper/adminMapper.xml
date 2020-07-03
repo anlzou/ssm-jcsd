@@ -23,6 +23,7 @@
         where id = #{id,jdbcType=INTEGER}
     </select>
 
+<!--  登录  -->
     <select id="selectByPrimaryNameAndPass" resultMap="BaseResultMap" parameterType="java.lang.String">
         select *
         from admin
