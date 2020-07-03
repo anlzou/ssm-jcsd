@@ -98,15 +98,15 @@ function initclasse() {
             title: '班级名称',
             width: 200
         }, {
-            field: 'major_id',
+            field: 'majorId',
             title: '班级专业',
             width: 200
         }, {
-            field: 'major_name',
+            field: 'majorName',
             title: '专业名称',
             width: 200
         }, {
-            field: 'student_number',
+            field: 'studentNumber',
             title: '班级学生人数',
             width: 200
         }]]
@@ -157,15 +157,15 @@ function classeInsert() {
         '            </tr>\n' +
         '            <tr>\n' +
         '                <td>班级专业</td>\n' +
-        '                <td><input type="number" id="major_id" name="major_id" /> </td>\n' +
+        '                <td><input type="number" id="majorId" name="majorId" /> </td>\n' +
         '            </tr>\n' +
         '            <tr>\n' +
         '                <td>专业名称</td>\n' +
-        '                <td><input type="text" id="major_name" name="major_name" /> </td>\n' +
+        '                <td><input type="text" id="majorName" name="majorName" /> </td>\n' +
         '            </tr>\n' +
         '            <tr>\n' +
         '                <td>班级学生人数</td>\n' +
-        '                <td><input type="number" id="student_number" name="student_number" /> </td>\n' +
+        '                <td><input type="number" id="studentNumber" name="studentNumber" /> </td>\n' +
         '            </tr>\n' +
         '        </table>\n' +
         '    </form>';
@@ -219,15 +219,15 @@ function classeUpdate(row) {
         '            </tr>\n' +
         '            <tr>\n' +
         '                <td>班级专业</td>\n' +
-        '                <td><input type="number" id="major_id" name="major_id" /> </td>\n' +
+        '                <td><input type="number" id="majorId" name="majorId" /> </td>\n' +
         '            </tr>\n' +
         '            <tr>\n' +
         '                <td>专业名称</td>\n' +
-        '                <td><input type="text" id="major_name" name="major_name" /> </td>\n' +
+        '                <td><input type="text" id="majorName" name="majorName" /> </td>\n' +
         '            </tr>\n' +
         '            <tr>\n' +
         '                <td>班级学生人数</td>\n' +
-        '                <td><input type="number" id="student_number" name="student_number" /><input type="hidden" id="id" name="id" /> </td>\n' +
+        '                <td><input type="number" id="studentNumber" name="studentNumber" /><input type="hidden" id="id" name="id" /> </td>\n' +
         '            </tr>\n' +
         '        </table>\n' +
         '    </form>';

@@ -12,6 +12,8 @@ import qin.com.entity.Course;
 import qin.com.mapper.CourseMapper;
 import qin.com.service.CourseService;
 
+import java.util.List;
+
 @Service("courseServiceImpl")  //注解为业务类，并且方便在控制器中注入我们这个业务类
 public class CourseServiceImpl implements CourseService {
     @Autowired
@@ -45,5 +47,15 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public int updateByPrimaryKey(Course record) {
         return courseMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<Course> selectAll() {
+        return courseMapper.selectAll();
+    }
+
+    @Override
+    public int deleteByList(String[] deleteids) {
+        return courseMapper.deleteByList(deleteids);
     }
 }

@@ -92,6 +92,14 @@
                     if (node.id == "courselist") {
                         /*单击课程信息列表时把中间区域的标题设置为课程信息列表*/
                         $(".layout-panel-center .panel-title").text("课程信息列表");
+                        //动态加js文件
+                        if(typeof(initclasse()) !="function"){
+                            $.getScript("${pageContext.request.contextPath}/js/course.js",function(){
+                                initcourse();
+                            })
+                        }else{
+                            initcourse();
+                        }
                     }
 
                     /*单击导航栏中的课程安排信息列表结点*/
