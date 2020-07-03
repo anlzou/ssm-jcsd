@@ -17,7 +17,7 @@ import java.util.List;
 
 @Controller
 public class DepartmentController {
-    @Resource
+    @Resource(name = "departmentServiceImpl")
     @Autowired
     private DepartmentService departmentService;
 

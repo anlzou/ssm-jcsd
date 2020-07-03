@@ -7,18 +7,14 @@ import java.util.List;
 
 public interface JcService {
     int deleteByPrimaryKey(Integer id);
-//    int insert(JcWithBLOBs record);
-    int insertSelective(JcWithBLOBs record);
-    JcWithBLOBs selectByPrimaryKey(Integer id);
-//    int updateByPrimaryKeySelective(JcWithBLOBs record);
-    int updateByPrimaryKeyWithBLOBs(JcWithBLOBs record);
+    int insert(Jc record);
+    int insertSelective(Jc record);
+    Jc selectByPrimaryKey(Integer id);
+    int updateByPrimaryKeySelective(Jc record);
+    int updateByPrimaryKeyWithBLOBs(Jc record);
     int updateByPrimaryKey(Jc record);
-
-    List<Jc> selectAll();
 
     int deleteByList( String[] deleteids);
 
-    int updateByPrimaryKeySelective(Jc record);
-
-    int insert(Jc record);
+    List<Jc> selectAll();
 }

@@ -22,6 +22,9 @@
         <result column="sd_teacher" property="sdTeacher" jdbcType="INTEGER"/>
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
         <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="k_overview" property="kOverview" jdbcType="LONGVARCHAR"/>
+        <result column="depart_opinion" property="departOpinion" jdbcType="LONGVARCHAR"/>
+        <result column="company_option" property="companyOption" jdbcType="LONGVARCHAR"/>
     </resultMap>
     <resultMap id="ResultMapWithBLOBs" type="qin.com.entity.JcWithBLOBs" extends="BaseResultMap">
         <result column="k_overview" property="kOverview" jdbcType="LONGVARCHAR"/>
@@ -58,7 +61,7 @@
         classse_text, levels_id, course_id,
         course_name, teacher_use, yesorno,
         sd_datetime, sd_teacher, create_time,
-        update_time)
+        update_time, k_overview, depart_opinion, company_option)
         values (#{name,jdbcType=VARCHAR}, #{isbn,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR},
         #{publisherId,jdbcType=INTEGER}, #{price,jdbcType=DOUBLE}, #{pubdate,jdbcType=TIMESTAMP},
         #{categoryId,jdbcType=INTEGER}, #{majorText,jdbcType=VARCHAR}, #{classseId,jdbcType=INTEGER},
@@ -196,7 +199,7 @@
                 #{createTime,jdbcType=TIMESTAMP},
             </if>
             <if test="updateTime != null">
-                #{updateTime,jdbcType=TIMESTAMP},
+                now(),
             </if>
             <if test="kOverview != null">
                 #{kOverview,jdbcType=LONGVARCHAR},
@@ -209,7 +212,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="qin.com.entity.Jc">
+    <update id="updateByPrimaryKeySelective" parameterType="qin.com.entity.JcWithBLOBs">
         update jc
         <set>
             <if test="name != null">
@@ -281,7 +284,7 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKeyWithBLOBs" parameterType="qin.com.entity.JcWithBLOBs">
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="qin.com.entity.Jc">
     update jc
     set name = #{name,jdbcType=VARCHAR},
       isbn = #{isbn,jdbcType=VARCHAR},
@@ -301,7 +304,7 @@
       sd_datetime = #{sdDatetime,jdbcType=VARCHAR},
       sd_teacher = #{sdTeacher,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_time = now(),
       k_overview = #{kOverview,jdbcType=LONGVARCHAR},
       depart_opinion = #{departOpinion,jdbcType=LONGVARCHAR},
       company_option = #{companyOption,jdbcType=LONGVARCHAR}
@@ -327,7 +330,7 @@
       sd_datetime = #{sdDatetime,jdbcType=VARCHAR},
       sd_teacher = #{sdTeacher,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      update_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
 

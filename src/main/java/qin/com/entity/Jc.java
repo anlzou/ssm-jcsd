@@ -202,4 +202,34 @@ public class Jc {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+    private String kOverview;
+
+    private String departOpinion;
+
+    private String companyOption;
+
+    public String getkOverview() {
+        return kOverview;
+    }
+
+    public void setkOverview(String kOverview) {
+        this.kOverview = kOverview == null ? null : kOverview.trim();
+    }
+
+    public String getDepartOpinion() {
+        return departOpinion;
+    }
+
+    public void setDepartOpinion(String departOpinion) {
+        this.departOpinion = departOpinion == null ? null : departOpinion.trim();
+    }
+
+    public String getCompanyOption() {
+        return companyOption;
+    }
+
+    public void setCompanyOption(String companyOption) {
+        this.companyOption = companyOption == null ? null : companyOption.trim();
+    }
 }

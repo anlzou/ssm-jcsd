@@ -6,9 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import qin.com.common.ResponseCode;
 import qin.com.common.ServerResponse;
-import qin.com.entity.Department;
 import qin.com.entity.Jc;
-import qin.com.service.DepartmentService;
+import qin.com.entity.JcWithBLOBs;
 import qin.com.service.JcService;
 
 import javax.annotation.Resource;
@@ -18,7 +17,7 @@ import java.util.List;
 
 @Controller
 public class JcController {
-    @Resource
+    @Resource(name = "jcServiceImpl")
     @Autowired
     private JcService jcService;
 
@@ -30,9 +29,9 @@ public class JcController {
     @ResponseBody
     public ServerResponse listall(HttpServletRequest request, HttpServletResponse response) {
         List<Jc> jcList = jcService.selectAll();
-        System.out.println("Department：进入查询控制器");
+        System.out.println("Jc：进入查询控制器");
         if (jcList.size() > 0) {
-            System.out.println("Department：查询成功");
+            System.out.println("Jc：查询成功");
             return ServerResponse.createBySuccess(0, jcList);
         } else {
             return ServerResponse.createByErrorMessage("找不到部门信息");
@@ -69,63 +68,70 @@ public class JcController {
      */
     @RequestMapping("/updateByPrimaryKeySelectiveJc")
     @ResponseBody
-    public ServerResponse updateByPrimaryKeySelective(Jc record) {
-        Jc jc = new Jc();
-        jc.setId(record.getId());
-        jc.setName(record.getName());
-        jc.setIsbn(record.getIsbn());
-        jc.setAuthor(record.getAuthor());
-        jc.setPublisherId(record.getPublisherId());
-        jc.setPrice(record.getPrice());
-        jc.setPubdate(record.getPubdate());
-        jc.setCategoryId(record.getCategoryId());
-        jc.setMajorText(record.getMajorText());
-        jc.setClassseId(record.getClassseId());
-        jc.setClassseText(record.getClassseText());
-        jc.setLevelsId(record.getLevelsId());
-        jc.setCourseId(record.getCourseId());
-        jc.setCourseName(record.getCourseName());
-        jc.setTeacherUse(record.getTeacherUse());
-        jc.setYesorno(record.getYesorno());
-        jc.setSdDatetime(record.getSdDatetime());
-        jc.setSdTeacher(record.getSdTeacher());
-        if (jcService.updateByPrimaryKeySelective(jc) > 0) {
+    public ServerResponse updateByPrimaryKeySelective(JcWithBLOBs record) {
+        System.out.println(record);
+        JcWithBLOBs jcWithBLOBs = new JcWithBLOBs();
+        jcWithBLOBs.setId(record.getId());
+        jcWithBLOBs.setName(record.getName());
+        jcWithBLOBs.setIsbn(record.getIsbn());
+        jcWithBLOBs.setAuthor(record.getAuthor());
+        jcWithBLOBs.setPublisherId(record.getPublisherId());
+        jcWithBLOBs.setPrice(record.getPrice());
+        jcWithBLOBs.setPubdate(record.getPubdate());
+        jcWithBLOBs.setCategoryId(record.getCategoryId());
+        jcWithBLOBs.setMajorText(record.getMajorText());
+        jcWithBLOBs.setClassseId(record.getClassseId());
+        jcWithBLOBs.setClassseText(record.getClassseText());
+        jcWithBLOBs.setLevelsId(record.getLevelsId());
+        jcWithBLOBs.setCourseId(record.getCourseId());
+        jcWithBLOBs.setCourseName(record.getCourseName());
+        jcWithBLOBs.setTeacherUse(record.getTeacherUse());
+        jcWithBLOBs.setYesorno(record.getYesorno());
+        jcWithBLOBs.setSdDatetime(record.getSdDatetime());
+        jcWithBLOBs.setSdTeacher(record.getSdTeacher());
+        jcWithBLOBs.setkOverview(record.getkOverview());
+        jcWithBLOBs.setCompanyOption(record.getCompanyOption());
+        jcWithBLOBs.setDepartOpinion(record.getDepartOpinion());
+        if (jcService.updateByPrimaryKeySelective(jcWithBLOBs) > 0) {
             System.out.println("Jc表更新成功");
             return ServerResponse.createBySuccess("更新数据成功", record);
         } else {
             return ServerResponse.createByErrorMessage("更新数据失败");
         }
     }
-
     /**
      * 插入数据
      * ok
      */
     @RequestMapping("/insertSelectiveJc")
     @ResponseBody
-    public ServerResponse insertSelective(Jc record) {
-        Jc jc = new Jc();
-        jc.setId(record.getId());
-        jc.setName(record.getName());
-        jc.setIsbn(record.getIsbn());
-        jc.setAuthor(record.getAuthor());
-        jc.setPublisherId(record.getPublisherId());
-        jc.setPrice(record.getPrice());
-        jc.setPubdate(record.getPubdate());
-        jc.setCategoryId(record.getCategoryId());
-        jc.setMajorText(record.getMajorText());
-        jc.setClassseId(record.getClassseId());
-        jc.setClassseText(record.getClassseText());
-        jc.setLevelsId(record.getLevelsId());
-        jc.setCourseId(record.getCourseId());
-        jc.setCourseName(record.getCourseName());
-        jc.setTeacherUse(record.getTeacherUse());
-        jc.setYesorno(record.getYesorno());
-        jc.setSdDatetime(record.getSdDatetime());
-        jc.setSdTeacher(record.getSdTeacher());
-        if (jcService.insert(jc) > 0) {
+    public ServerResponse insertSelective(JcWithBLOBs record) {
+        System.out.println(record);
+        JcWithBLOBs jcWithBLOBs = new JcWithBLOBs();
+        jcWithBLOBs.setId(record.getId());
+        jcWithBLOBs.setName(record.getName());
+        jcWithBLOBs.setIsbn(record.getIsbn());
+        jcWithBLOBs.setAuthor(record.getAuthor());
+        jcWithBLOBs.setPublisherId(record.getPublisherId());
+        jcWithBLOBs.setPrice(record.getPrice());
+        jcWithBLOBs.setPubdate(record.getPubdate());
+        jcWithBLOBs.setCategoryId(record.getCategoryId());
+        jcWithBLOBs.setMajorText(record.getMajorText());
+        jcWithBLOBs.setClassseId(record.getClassseId());
+        jcWithBLOBs.setClassseText(record.getClassseText());
+        jcWithBLOBs.setLevelsId(record.getLevelsId());
+        jcWithBLOBs.setCourseId(record.getCourseId());
+        jcWithBLOBs.setCourseName(record.getCourseName());
+        jcWithBLOBs.setTeacherUse(record.getTeacherUse());
+        jcWithBLOBs.setYesorno(record.getYesorno());
+        jcWithBLOBs.setSdDatetime(record.getSdDatetime());
+        jcWithBLOBs.setSdTeacher(record.getSdTeacher());
+        jcWithBLOBs.setkOverview(record.getkOverview());
+        jcWithBLOBs.setCompanyOption(record.getCompanyOption());
+        jcWithBLOBs.setDepartOpinion(record.getDepartOpinion());
+        if (jcService.insert(jcWithBLOBs) > 0) {
             System.out.println("Jc表插入成功");
-            return ServerResponse.createBySuccess("添加数据成功", jc);
+            return ServerResponse.createBySuccess("添加数据成功", jcWithBLOBs);
         } else {
             return ServerResponse.createByErrorMessage("添加数据失败");
         }

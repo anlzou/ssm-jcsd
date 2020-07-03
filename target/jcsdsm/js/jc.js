@@ -18,7 +18,7 @@ function initjc() {
             text: '添加',
             iconCls: 'icon-add',
             handler: function () {
-                admininsert();
+                jcinsert();
             }
         }, '-', {
             text: '更新',
@@ -30,7 +30,7 @@ function initjc() {
                         alert("一次只能更新一条记录");
                         return false;
                     } else {
-                        adminupdate(row);
+                        jcupdate(row);
                     }
                 } else {
                     alert("请选择你要更新数据行，才能进行更新操作");
@@ -161,13 +161,25 @@ function initjc() {
             field: 'sdTeacher',
             title: '申订教师编号',
             width: 200
+        }, {
+            field: 'kOverview',
+            title: 'a到J不用写原因',
+            width: 200
+        }, {
+            field: 'departOpinion',
+            title: '部门审核意见',
+            width: 200
+        }, {
+            field: 'companyOption',
+            title: '单位审核意见',
+            width: 200
         }]]
     });
 }
 
-function admininsert() {
+function jcinsert() {
     /*判断页面中是否存在id="dd"元素，若存在则进行删除*/
-    if ($("#dd") != null){
+    if ($("#dd") != null) {
         $("#dd").remove();
     }
     /*在页面中id="tab"的元素中添加一个id="dd"的div元素*/
@@ -271,6 +283,18 @@ function admininsert() {
         '                <td>申订教师编号</td>\n' +
         '                <td><input type="number" id="sdTeacher" name="sdTeacher" /> </td>\n' +
         '            </tr>\n' +
+        '            <tr>\n' +
+        '                <td>a到J不用写原因</td>\n' +
+        '                <td><input type="text" id="kOverview" name="kOverview" /> </td>\n' +
+        '            </tr>\n' +
+        '            <tr>\n' +
+        '                <td>部门审核意见</td>\n' +
+        '                <td><input type="text" id="departOpinion" name="departOpinion" /> </td>\n' +
+        '            </tr>\n' +
+        '            <tr>\n' +
+        '                <td>单位审核意见</td>\n' +
+        '                <td><input type="text" id="companyOption" name="companyOption" /> </td>\n' +
+        '            </tr>\n' +
         '        </table>\n' +
         '    </form>';
 
@@ -278,7 +302,7 @@ function admininsert() {
     $("#dd").html(str);
 }
 
-function adminupdate(row) {
+function jcupdate(row) {
     /*判断页面中是否存在id="dd"元素，若存在则进行删除*/
     if ($("#dd") != null) {
         $("#dd").remove();
@@ -384,6 +408,18 @@ function adminupdate(row) {
         '            <tr>\n' +
         '                <td>申订教师编号</td>\n' +
         '                <td><input type="number" id="sdTeacher" name="sdTeacher" /> </td> <input type="hidden" id="id" name="id" /> </td>\n' +
+        '            </tr>\n' +
+        '            <tr>\n' +
+        '                <td>a到J不用写原因</td>\n' +
+        '                <td><input type="text" id="kOverview" name="kOverview" /> </td>\n' +
+        '            </tr>\n' +
+        '            <tr>\n' +
+        '                <td>部门审核意见</td>\n' +
+        '                <td><input type="text" id="departOpinion" name="departOpinion" /> </td>\n' +
+        '            </tr>\n' +
+        '            <tr>\n' +
+        '                <td>单位审核意见</td>\n' +
+        '                <td><input type="text" id="companyOption" name="companyOption" /> </td>\n' +
         '            </tr>\n' +
         '        </table>\n' +
         '    </form>';

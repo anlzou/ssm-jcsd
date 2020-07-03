@@ -161,6 +161,18 @@ function initjc() {
             field: 'sdTeacher',
             title: '申订教师编号',
             width: 200
+        }, {
+            field: 'kOverview',
+            title: 'a到J不用写原因',
+            width: 200
+        }, {
+            field: 'departOpinion',
+            title: '部门审核意见',
+            width: 200
+        }, {
+            field: 'companyOption',
+            title: '单位审核意见',
+            width: 200
         }]]
     });
 }
@@ -270,6 +282,18 @@ function jcinsert() {
         '            <tr>\n' +
         '                <td>申订教师编号</td>\n' +
         '                <td><input type="number" id="sdTeacher" name="sdTeacher" /> </td>\n' +
+        '            </tr>\n' +
+        '            <tr>\n' +
+        '                <td>a到J不用写原因</td>\n' +
+        '                <td><input type="text" id="kOverview" name="kOverview" /> </td>\n' +
+        '            </tr>\n' +
+        '            <tr>\n' +
+        '                <td>部门审核意见</td>\n' +
+        '                <td><input type="text" id="departOpinion" name="departOpinion" /> </td>\n' +
+        '            </tr>\n' +
+        '            <tr>\n' +
+        '                <td>单位审核意见</td>\n' +
+        '                <td><input type="text" id="companyOption" name="companyOption" /> </td>\n' +
         '            </tr>\n' +
         '        </table>\n' +
         '    </form>';
@@ -384,6 +408,18 @@ function jcupdate(row) {
         '            <tr>\n' +
         '                <td>申订教师编号</td>\n' +
         '                <td><input type="number" id="sdTeacher" name="sdTeacher" /> </td> <input type="hidden" id="id" name="id" /> </td>\n' +
+        '            </tr>\n' +
+        '            <tr>\n' +
+        '                <td>a到J不用写原因</td>\n' +
+        '                <td><input type="text" id="kOverview" name="kOverview" /> </td>\n' +
+        '            </tr>\n' +
+        '            <tr>\n' +
+        '                <td>部门审核意见</td>\n' +
+        '                <td><input type="text" id="departOpinion" name="departOpinion" /> </td>\n' +
+        '            </tr>\n' +
+        '            <tr>\n' +
+        '                <td>单位审核意见</td>\n' +
+        '                <td><input type="text" id="companyOption" name="companyOption" /> </td>\n' +
         '            </tr>\n' +
         '        </table>\n' +
         '    </form>';
