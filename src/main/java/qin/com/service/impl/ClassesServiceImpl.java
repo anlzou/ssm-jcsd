@@ -8,9 +8,12 @@ package qin.com.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import qin.com.entity.Category;
 import qin.com.entity.Classse;
 import qin.com.mapper.ClassseMapper;
 import qin.com.service.ClassesService;
+
+import java.util.List;
 
 @Service("classesServiceImpl")  //注解为业务类，并且方便在控制器中注入我们这个业务类
 public class ClassesServiceImpl implements ClassesService {
@@ -45,5 +48,15 @@ public class ClassesServiceImpl implements ClassesService {
     @Override
     public int updateByPrimaryKey(Classse record) {
         return classseMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<Classse> selectAll() {
+        return classseMapper.selectAll();
+    }
+
+    @Override
+    public int deleteByList(String[] deleteids) {
+        return classseMapper.deleteByList(deleteids);
     }
 }

@@ -23,16 +23,15 @@
     delete from classse
     where id = #{id,jdbcType=INTEGER}
   </delete>
+<!-- 插入 -->
   <insert id="insert" parameterType="qin.com.entity.Classse" >
     <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into classse (name, major_id, major_name, 
-      student_number, create_time, update_time
-      )
+    insert into classse (name, major_id, major_name, student_number, create_time, update_time)
     values (#{name,jdbcType=VARCHAR}, #{majorId,jdbcType=INTEGER}, #{majorName,jdbcType=VARCHAR}, 
-      #{studentNumber,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
-      )
+      #{studentNumber,jdbcType=INTEGER}, now(), now())
+
   </insert>
   <insert id="insertSelective" parameterType="qin.com.entity.Classse" >
     <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
@@ -73,13 +72,14 @@
         #{studentNumber,jdbcType=INTEGER},
       </if>
       <if test="createTime != null" >
-        #{createTime,jdbcType=TIMESTAMP},
+        now(),
       </if>
       <if test="updateTime != null" >
-        #{updateTime,jdbcType=TIMESTAMP},
+        now(),
       </if>
     </trim>
   </insert>
+<!-- 更新 -->
   <update id="updateByPrimaryKeySelective" parameterType="qin.com.entity.Classse" >
     update classse
     <set >
@@ -99,7 +99,7 @@
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null" >
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
+        update_time = now(),
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -111,7 +111,23 @@
       major_name = #{majorName,jdbcType=VARCHAR},
       student_number = #{studentNumber,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      update_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--修改查询内容，去掉时间的查询，时间为0无法运行-->
+  <select id="selectAll" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select id,name,major_id,major_name,student_number
+            from classse
+    </select>
+
+  <!-- 根据列表删除 -->
+  <delete id="deleteByList" parameterType="java.lang.String">
+    delete from classse
+    where id in
+    <foreach collection="deleteids" item="item" open="(" separator=","
+             close=")">
+      #{item}
+    </foreach>
+  </delete>
 </mapper>

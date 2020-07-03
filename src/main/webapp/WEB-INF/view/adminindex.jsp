@@ -11,6 +11,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/easyui-lang-zh_CN.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/category.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/classse.js"></script>
     <script type="text/javascript">
         $(function () {
             /*jquery easyui的代码在这里写*/
@@ -52,6 +53,14 @@
                     if (node.id == "classselist") {
                         /*单击班级列表时把中间区域的标题设置为班级信息列表*/
                         $(".layout-panel-center .panel-title").text("班级信息列表");
+                        //动态加js文件
+                        if(typeof(initclasse()) !="function"){
+                            $.getScript("${pageContext.request.contextPath}/js/classse.js",function(){
+                                initclasse();
+                            })
+                        }else{
+                            initclasse();
+                        }
                     }
 
                     /*单击导航栏中的教师信息列表结点*/

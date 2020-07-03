@@ -2,7 +2,6 @@ package qin.com.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import qin.com.common.ResponseCode;
@@ -63,7 +62,7 @@ public class CategoryController {
 
     /**
      * 更新
-     * not
+     * ok
      */
     @RequestMapping("/updateByPrimaryKeySelectiveCategory")
     @ResponseBody

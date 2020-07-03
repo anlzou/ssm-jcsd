@@ -61,6 +61,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public int updateByPrimaryName(String name_old, String name_new) {
-        return categoryMapper.updateByPrimaryName(name_old,name_new);
+        return 0;
     }
 }

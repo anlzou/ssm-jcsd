@@ -18,5 +18,5 @@ public interface CategoryMapper {
 
     int updateByPrimaryKeySelective(Category record);
 
-    int updateByPrimaryName(@Param("name_old") String name_old, @Param("name_new") String name_new);
+//    int updateByPrimaryName(@Param("name_old") String name_old, @Param("name_new") String name_new);
 }

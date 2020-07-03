@@ -12,4 +12,4 @@
 [generator.xml](src/resource/generator.xml)
 
 ### 注意
-删除数据库的atype字段才可以插入数据
+数据库所有表的日期字段不为0才可以查询数据
