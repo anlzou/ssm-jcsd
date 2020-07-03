@@ -113,11 +113,12 @@ function initjc() {
             field: 'price',
             title: '价格',
             width: 200
-        }, {
-            field: 'pubdate',
-            title: '开课时间',
-            width: 200
-        }, {
+        },{
+        // }, {
+        //     field: 'pubdate',
+        //     title: '开课时间',
+        //     width: 200
+        // }, {
             field: 'categoryId',
             title: '专业编号',
             width: 200
@@ -235,10 +236,10 @@ function jcinsert() {
         '                <td>价格</td>\n' +
         '                <td><input type="number" id="price" name="price" /> </td>\n' +
         '            </tr>\n' +
-        '            <tr>\n' +
-        '                <td>开课时间</td>\n' +
-        '                <td><input type="date" id="pubdate" name="pubdate" /> </td>\n' +
-        '            </tr>\n' +
+        // '            <tr>\n' +
+        // '                <td>开课时间</td>\n' +
+        // '                <td><input type="date" id="pubdate" name="pubdate" /> </td>\n' +
+        // '            </tr>\n' +
         '            <tr>\n' +
         '                <td>专业编号</td>\n' +
         '                <td><input type="number" id="categoryId" name="categoryId" /> </td>\n' +
@@ -361,10 +362,10 @@ function jcupdate(row) {
         '                <td>价格</td>\n' +
         '                <td><input type="number" id="price" name="price" /> </td>\n' +
         '            </tr>\n' +
-        '            <tr>\n' +
-        '                <td>开课时间</td>\n' +
-        '                <td><input type="date" id="pubdate" name="pubdate" /> </td>\n' +
-        '            </tr>\n' +
+        // '            <tr>\n' +
+        // '                <td>开课时间</td>\n' +
+        // '                <td><input type="date" id="pubdate" name="pubdate" /> </td>\n' +
+        // '            </tr>\n' +
         '            <tr>\n' +
         '                <td>专业编号</td>\n' +
         '                <td><input type="number" id="categoryId" name="categoryId" /> </td>\n' +
@@ -407,7 +408,7 @@ function jcupdate(row) {
         '            </tr>\n' +
         '            <tr>\n' +
         '                <td>申订教师编号</td>\n' +
-        '                <td><input type="number" id="sdTeacher" name="sdTeacher" /> </td> <input type="hidden" id="id" name="id" /> </td>\n' +
+        '                <td><input type="number" id="sdTeacher" name="sdTeacher" /></td>\n' +
         '            </tr>\n' +
         '            <tr>\n' +
         '                <td>a到J不用写原因</td>\n' +
@@ -419,7 +420,7 @@ function jcupdate(row) {
         '            </tr>\n' +
         '            <tr>\n' +
         '                <td>单位审核意见</td>\n' +
-        '                <td><input type="text" id="companyOption" name="companyOption" /> </td>\n' +
+        '                <td><input type="text" id="companyOption" name="companyOption" /> <input type="hidden" id="id" name="id" /> </td>\n' +
         '            </tr>\n' +
         '        </table>\n' +
         '    </form>';

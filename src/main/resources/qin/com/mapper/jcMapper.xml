@@ -51,24 +51,24 @@
     delete from jc
     where id = #{id,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="qin.com.entity.Jc">
+    <insert id="insert" parameterType="qin.com.entity.JcWithBLOBs">
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
             SELECT LAST_INSERT_ID()
         </selectKey>
         insert into jc (name, isbn, author,
-        publisher_id, price, pubdate,
+        publisher_id, price,
         category_id, major_text, classse_id,
         classse_text, levels_id, course_id,
         course_name, teacher_use, yesorno,
         sd_datetime, sd_teacher, create_time,
         update_time, k_overview, depart_opinion, company_option)
         values (#{name,jdbcType=VARCHAR}, #{isbn,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR},
-        #{publisherId,jdbcType=INTEGER}, #{price,jdbcType=DOUBLE}, #{pubdate,jdbcType=TIMESTAMP},
+        #{publisherId,jdbcType=INTEGER}, #{price,jdbcType=DOUBLE},
         #{categoryId,jdbcType=INTEGER}, #{majorText,jdbcType=VARCHAR}, #{classseId,jdbcType=INTEGER},
         #{classseText,jdbcType=VARCHAR}, #{levelsId,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER},
         #{courseName,jdbcType=VARCHAR}, #{teacherUse,jdbcType=INTEGER}, #{yesorno,jdbcType=INTEGER},
-        #{sdDatetime,jdbcType=VARCHAR}, #{sdTeacher,jdbcType=INTEGER}, now(),
-        now())
+        #{sdDatetime,jdbcType=VARCHAR}, #{sdTeacher,jdbcType=INTEGER}, now(),now(),
+        #{kOverview,jdbcType=LONGVARCHAR},#{departOpinion,jdbcType=LONGVARCHAR}, #{companyOption,jdbcType=LONGVARCHAR})
     </insert>
     <insert id="insertSelective" parameterType="qin.com.entity.JcWithBLOBs">
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
@@ -91,9 +91,9 @@
             <if test="price != null">
                 price,
             </if>
-            <if test="pubdate != null">
-                pubdate,
-            </if>
+<!--            <if test="pubdate != null">-->
+<!--                pubdate,-->
+<!--            </if>-->
             <if test="categoryId != null">
                 category_id,
             </if>
@@ -159,9 +159,9 @@
             <if test="price != null">
                 #{price,jdbcType=DOUBLE},
             </if>
-            <if test="pubdate != null">
-                #{pubdate,jdbcType=TIMESTAMP},
-            </if>
+<!--            <if test="pubdate != null">-->
+<!--                #{pubdate,jdbcType=TIMESTAMP},-->
+<!--            </if>-->
             <if test="categoryId != null">
                 #{categoryId,jdbcType=INTEGER},
             </if>

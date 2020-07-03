@@ -2,12 +2,13 @@ package qin.com.mapper;
 
 import org.apache.ibatis.annotations.Param;
 import qin.com.entity.Jc;
+import qin.com.entity.JcWithBLOBs;
 
 import java.util.List;
 
 public interface JcMapper {
     int deleteByPrimaryKey(Integer id);
-    int insert(Jc record);
+    int insert(JcWithBLOBs record);
     int insertSelective(Jc record);
     Jc selectByPrimaryKey(Integer id);
     int updateByPrimaryKeySelective(Jc record);

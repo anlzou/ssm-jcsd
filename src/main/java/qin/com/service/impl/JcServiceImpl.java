@@ -9,6 +9,7 @@ package qin.com.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import qin.com.entity.Jc;
+import qin.com.entity.JcWithBLOBs;
 import qin.com.mapper.JcMapper;
 import qin.com.service.JcService;
 
@@ -25,7 +26,7 @@ public class JcServiceImpl implements JcService {
     }
 
     @Override
-    public int insert(Jc record) {
+    public int insert(JcWithBLOBs record) {
         return jcMapper.insert(record);
     }
 

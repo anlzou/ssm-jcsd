@@ -69,7 +69,7 @@ public class JcController {
     @RequestMapping("/updateByPrimaryKeySelectiveJc")
     @ResponseBody
     public ServerResponse updateByPrimaryKeySelective(JcWithBLOBs record) {
-        System.out.println(record);
+        System.out.println("更新数据："+record);
         JcWithBLOBs jcWithBLOBs = new JcWithBLOBs();
         jcWithBLOBs.setId(record.getId());
         jcWithBLOBs.setName(record.getName());
@@ -77,7 +77,7 @@ public class JcController {
         jcWithBLOBs.setAuthor(record.getAuthor());
         jcWithBLOBs.setPublisherId(record.getPublisherId());
         jcWithBLOBs.setPrice(record.getPrice());
-        jcWithBLOBs.setPubdate(record.getPubdate());
+//        jcWithBLOBs.setPubdate(record.getPubdate());
         jcWithBLOBs.setCategoryId(record.getCategoryId());
         jcWithBLOBs.setMajorText(record.getMajorText());
         jcWithBLOBs.setClassseId(record.getClassseId());
@@ -106,7 +106,7 @@ public class JcController {
     @RequestMapping("/insertSelectiveJc")
     @ResponseBody
     public ServerResponse insertSelective(JcWithBLOBs record) {
-        System.out.println(record);
+        System.out.println("插入数据："+record);
         JcWithBLOBs jcWithBLOBs = new JcWithBLOBs();
         jcWithBLOBs.setId(record.getId());
         jcWithBLOBs.setName(record.getName());
@@ -114,7 +114,7 @@ public class JcController {
         jcWithBLOBs.setAuthor(record.getAuthor());
         jcWithBLOBs.setPublisherId(record.getPublisherId());
         jcWithBLOBs.setPrice(record.getPrice());
-        jcWithBLOBs.setPubdate(record.getPubdate());
+//        jcWithBLOBs.setPubdate(record.getPubdate());
         jcWithBLOBs.setCategoryId(record.getCategoryId());
         jcWithBLOBs.setMajorText(record.getMajorText());
         jcWithBLOBs.setClassseId(record.getClassseId());

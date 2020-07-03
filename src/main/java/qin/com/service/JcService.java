@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface JcService {
     int deleteByPrimaryKey(Integer id);
-    int insert(Jc record);
+    int insert(JcWithBLOBs record);
     int insertSelective(Jc record);
     Jc selectByPrimaryKey(Integer id);
     int updateByPrimaryKeySelective(Jc record);
