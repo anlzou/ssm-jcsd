@@ -73,7 +73,7 @@ public class LevelsController {
         levels.setName(record.getName());
         levels.setUpdateTime(record.getUpdateTime());
         System.out.println("Levels更新数据==" + levels.getId() + "==" + levels.getName());
-        if (levelsService.updateByPrimaryKeySelective(levels) > 0) {
+        if (levelsService.updateByPrimaryKey(levels) > 0) {
             System.out.println("Levels表更新成功");
             return ServerResponse.createBySuccess("更新管理数据成功", record);
         } else {
