@@ -97,6 +97,14 @@ function initlevels() {
             field: 'name',
             title: '教材层次名称',
             width: 200
+        }, {
+            field: 'createTime',
+            title: '创建日期',
+            width: 200
+        }, {
+            field: 'updateTime',
+            title: '修改日期',
+            width: 200
         }]]
     });
 }

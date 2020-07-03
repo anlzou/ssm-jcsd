@@ -71,6 +71,7 @@ public class LevelsController {
         Levels levels = new Levels();
         levels.setId(record.getId());//更新操作必须要有id主关键字段
         levels.setName(record.getName());
+        levels.setUpdateTime(record.getUpdateTime());
         System.out.println("Levels更新数据==" + levels.getId() + "==" + levels.getName());
         if (levelsService.updateByPrimaryKeySelective(levels) > 0) {
             System.out.println("Levels表更新成功");
