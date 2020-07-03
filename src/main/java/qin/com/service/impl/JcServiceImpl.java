@@ -13,6 +13,8 @@ import qin.com.entity.JcWithBLOBs;
 import qin.com.mapper.JcMapper;
 import qin.com.service.JcService;
 
+import java.util.List;
+
 @Service("jcServiceImpl")  //注解为业务类，并且方便在控制器中注入我们这个业务类
 public class JcServiceImpl implements JcService {
     @Autowired
@@ -23,10 +25,10 @@ public class JcServiceImpl implements JcService {
         return jcMapper.deleteByPrimaryKey(id);
     }
 
-    @Override
-    public int insert(JcWithBLOBs record) {
-        return jcMapper.insert(record);
-    }
+//    @Override
+//    public int insert(JcWithBLOBs record) {
+//        return jcMapper.insert(record);
+//    }
 
     @Override
     public int insertSelective(JcWithBLOBs record) {
@@ -38,10 +40,10 @@ public class JcServiceImpl implements JcService {
         return jcMapper.selectByPrimaryKey(id);
     }
 
-    @Override
-    public int updateByPrimaryKeySelective(JcWithBLOBs record) {
-        return jcMapper.updateByPrimaryKeySelective(record);
-    }
+//    @Override
+//    public int updateByPrimaryKeySelective(JcWithBLOBs record) {
+//        return jcMapper.updateByPrimaryKeySelective(record);
+//    }
 
     @Override
     public int updateByPrimaryKeyWithBLOBs(JcWithBLOBs record) {
@@ -51,5 +53,25 @@ public class JcServiceImpl implements JcService {
     @Override
     public int updateByPrimaryKey(Jc record) {
         return jcMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<Jc> selectAll() {
+        return jcMapper.selectAll();
+    }
+
+    @Override
+    public int deleteByList(String[] deleteids) {
+        return jcMapper.deleteByList(deleteids);
+    }
+
+    @Override
+    public int updateByPrimaryKeySelective(Jc record) {
+        return jcMapper.updateByPrimaryKeySelective(record);
+    }
+
+    @Override
+    public int insert(Jc record) {
+        return jcMapper.insert(record);
     }
 }
