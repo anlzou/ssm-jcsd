@@ -15,6 +15,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/classse.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/department.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jc.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/levels.js"></script>
     <script type="text/javascript">
         $(function () {
             /*jquery easyui的代码在这里写*/
@@ -84,6 +85,14 @@
                     if (node.id == "levelslist") {
                         /*单击教材层次列表列表时把中间区域的标题设置为教材层次列表*/
                         $(".layout-panel-center .panel-title").text("教材层次列表");
+                        //动态加js文件
+                        if(typeof(initlevels) !="function"){
+                            $.getScript("${pageContext.request.contextPath}/js/levels.js",function(){
+                                initlevels();
+                            })
+                        }else{
+                            initlevels();
+                        }
                     }
 
                     /*单击导航栏中的类别信息列表结点*/

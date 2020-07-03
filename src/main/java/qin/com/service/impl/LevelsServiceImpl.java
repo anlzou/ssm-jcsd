@@ -12,6 +12,8 @@ import qin.com.entity.Levels;
 import qin.com.mapper.LevelsMapper;
 import qin.com.service.LevelsService;
 
+import java.util.List;
+
 @Service("levelsServiceImpl")  //注解为业务类，并且方便在控制器中注入我们这个业务类
 public class LevelsServiceImpl implements LevelsService {
     @Autowired
@@ -45,5 +47,15 @@ public class LevelsServiceImpl implements LevelsService {
     @Override
     public int updateByPrimaryKey(Levels record) {
         return levelsMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<Levels> selectAll() {
+        return levelsMapper.selectAll();
+    }
+
+    @Override
+    public int deleteByList(String[] deleteids) {
+        return levelsMapper.deleteByList(deleteids);
     }
 }
