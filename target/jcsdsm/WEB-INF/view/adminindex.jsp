@@ -13,6 +13,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/category.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/classse.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/department.js"></script>
     <script type="text/javascript">
         $(function () {
             /*jquery easyui的代码在这里写*/
@@ -35,6 +36,14 @@
                     if (node.id == "departmentlist") {
                         /*单击单位列表时把中间区域的标题设置为单位信息列表*/
                         $(".layout-panel-center .panel-title").text("单位信息列表");
+                        //动态加js文件
+                        if(typeof(initdepartment) !="function"){
+                            $.getScript("${pageContext.request.contextPath}/js/department.js",function(){
+                                initdepartment();
+                            })
+                        }else{
+                            initdepartment();
+                        }
                     }
                     /*单击导航栏中的专业信息列表结点*/
                     if (node.id == "categorylist") {
@@ -93,7 +102,7 @@
                         /*单击课程信息列表时把中间区域的标题设置为课程信息列表*/
                         $(".layout-panel-center .panel-title").text("课程信息列表");
                         //动态加js文件
-                        if(typeof(initclasse()) !="function"){
+                        if(typeof(initcourse()) !="function"){
                             $.getScript("${pageContext.request.contextPath}/js/course.js",function(){
                                 initcourse();
                             })

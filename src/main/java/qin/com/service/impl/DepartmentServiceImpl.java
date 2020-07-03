@@ -8,9 +8,12 @@ package qin.com.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import qin.com.entity.Course;
 import qin.com.entity.Department;
 import qin.com.mapper.DepartmentMapper;
 import qin.com.service.DepartmentService;
+
+import java.util.List;
 
 @Service("departmentServiceImpl")  //注解为业务类，并且方便在控制器中注入我们这个业务类
 public class DepartmentServiceImpl implements DepartmentService {
@@ -45,5 +48,15 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public int updateByPrimaryKey(Department record) {
         return departmentMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<Department> selectAll() {
+        return departmentMapper.selectAll();
+    }
+
+    @Override
+    public int deleteByList(String[] deleteids) {
+        return departmentMapper.deleteByList(deleteids);
     }
 }

@@ -122,7 +122,7 @@ function courseinsert() {
     $("#tab").append("<div id='dd'></div>");
     /*以页面中的id="dd"的元素作为对话框的内容*/
     $('#dd').dialog({
-        title: '添加管理员信息',//对话框的标题
+        title: '添加课程信息',//对话框的标题
         width: 300,//对话框的宽度
         closed: false,
         cache: false,//不允许有缓冲
@@ -183,7 +183,7 @@ function courseupdate(row) {
     $("#tab").append("<div id='dd'></div>");
     /*以页面中的id="dd"的元素作为对话框的内容*/
     $('#dd').dialog({
-        title: '更新管理员信息',//对话框的标题
+        title: '更新课程信息',//对话框的标题
         width: 300,//对话框的宽度
         closed: false,
         cache: false,//不允许有缓冲

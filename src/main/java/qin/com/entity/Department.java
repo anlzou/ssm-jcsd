@@ -1,6 +1,7 @@
 package qin.com.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class Department {
     private Integer id;

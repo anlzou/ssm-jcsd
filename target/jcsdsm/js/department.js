@@ -1,4 +1,4 @@
-function initcourse() {
+function initdepartment() {
     /*判断页面中是否存在id等于dg的元素，若存在则进行删除*/
     if ($("#dg") != null) {
         $("#dg").remove(); //删除id="dg"的元素
@@ -9,7 +9,7 @@ function initcourse() {
     /*下面采用jquery easyui的datagrie控制进行显示管理员的列表*/
     $('#dg').datagrid({
         //后台处理程序的地址
-        url: 'listallCourse',
+        url: 'listallDepartment',
         pagination: true,//显示分页工具
         pageNumber: 1,//表示显示第几页，第一页
         pageSize: 10,//表示每页显示的记录个数
@@ -18,7 +18,7 @@ function initcourse() {
             text: '添加',
             iconCls: 'icon-add',
             handler: function () {
-                courseinsert();
+                departmentinsert();
             }
         }, '-', {
             text: '更新',
@@ -30,7 +30,7 @@ function initcourse() {
                         alert("一次只能更新一条记录");
                         return false;
                     } else {
-                        courseupdate(row);
+                        departmentupdate(row);
                     }
                 } else {
                     alert("请选择你要更新数据行，才能进行更新操作");
@@ -53,7 +53,7 @@ function initcourse() {
                             if (r) { //若确认要删除，则采用异步方式把要删除的数据行对应的id串传送给后台进行处理
                                 $.ajax({
                                     type: "post",
-                                    url: "deleteallCourse",//后台处理程序
+                                    url: "deleteallDepartment",//后台处理程序
                                     data: {
                                         id: strid //要删除数据行对应的id字符串
                                     },
@@ -94,26 +94,18 @@ function initcourse() {
             width: 100,
             hidden: true
         }, {
-            field: 'code',
-            title: '课程代码',
-            width: 200
-        }, {
             field: 'name',
-            title: '课程名称',
+            title: '部门名称',
             width: 200
         }, {
-            field: 'period',
-            title: '课时',
-            width: 200
-        }, {
-            field: 'nature',
-            title: '课程类型',
+            field: 'dManager',
+            title: '部门负责人',
             width: 200
         }]]
     });
 }
 
-function courseinsert() {
+function departmentinsert() {
     /*判断页面中是否存在id="dd"元素，若存在则进行删除*/
     if ($("#dd") != null){
         $("#dd").remove();
@@ -122,7 +114,7 @@ function courseinsert() {
     $("#tab").append("<div id='dd'></div>");
     /*以页面中的id="dd"的元素作为对话框的内容*/
     $('#dd').dialog({
-        title: '添加课程信息',//对话框的标题
+        title: '添加部门信息',//对话框的标题
         width: 300,//对话框的宽度
         closed: false,
         cache: false,//不允许有缓冲
@@ -131,7 +123,7 @@ function courseinsert() {
             text: '保存',
             handler: function () {
                 $('#ff').form('submit', {
-                    url: "insertSelectiveCourse",
+                    url: "insertSelectiveDepartment",
                     onSubmit: function () {
                         //在这里编写表单字段验证
                     },
@@ -152,20 +144,12 @@ function courseinsert() {
     var str = ' <form id="ff" method="post">\n' +
         '        <table>\n' +
         '            <tr>\n' +
-        '                <td>课程代码</td>\n' +
-        '                <td><input type="text" id="code" name="code" /> </td>\n' +
-        '            </tr>\n' +
-        '            <tr>\n' +
-        '                <td>课程名称</td>\n' +
+        '                <td>部门名称</td>\n' +
         '                <td><input type="text" id="name" name="name" /> </td>\n' +
         '            </tr>\n' +
         '            <tr>\n' +
-        '                <td>课时</td>\n' +
-        '                <td><input type="number" id="period" name="period" /> </td>\n' +
-        '            </tr>\n' +
-        '            <tr>\n' +
-        '                <td>课程类型</td>\n' +
-        '                <td><input type="text" id="nature" name="nature" /> </td>\n' +
+        '                <td>部门负责人</td>\n' +
+        '                <td><input type="text" id="dManager" name="dManager" /> </td>\n' +
         '            </tr>\n' +
         '        </table>\n' +
         '    </form>';
@@ -174,7 +158,7 @@ function courseinsert() {
     $("#dd").html(str);
 }
 
-function courseupdate(row) {
+function departmentupdate(row) {
     /*判断页面中是否存在id="dd"元素，若存在则进行删除*/
     if ($("#dd") != null) {
         $("#dd").remove();
@@ -183,7 +167,7 @@ function courseupdate(row) {
     $("#tab").append("<div id='dd'></div>");
     /*以页面中的id="dd"的元素作为对话框的内容*/
     $('#dd').dialog({
-        title: '更新课程信息',//对话框的标题
+        title: '更新部门信息',//对话框的标题
         width: 300,//对话框的宽度
         closed: false,
         cache: false,//不允许有缓冲
@@ -192,7 +176,7 @@ function courseupdate(row) {
             text: '保存',
             handler: function () {
                 $('#ff').form('submit', {
-                    url: "updateByPrimaryKeySelectiveCourse",
+                    url: "updateByPrimaryKeySelectiveDepartment",
                     onSubmit: function () {
                         //在这里编写表单字段验证
                     },
@@ -214,20 +198,12 @@ function courseupdate(row) {
     var str = ' <form id="ff" method="post">\n' +
         '        <table>\n' +
         '            <tr>\n' +
-        '                <td>课程代码</td>\n' +
-        '                <td><input type="text" id="code" name="code" /> </td>\n' +
-        '            </tr>\n' +
-        '            <tr>\n' +
-        '                <td>课程名称</td>\n' +
+        '                <td>部门名称</td>\n' +
         '                <td><input type="text" id="name" name="name" /> </td>\n' +
         '            </tr>\n' +
         '            <tr>\n' +
-        '                <td>课时</td>\n' +
-        '                <td><input type="number" id="period" name="period" /> </td>\n' +
-        '            </tr>\n' +
-        '            <tr>\n' +
-        '                <td>课程类型</td>\n' +
-        '                <td><input type="text" id="nature" name="nature" /><input type="hidden" id="id" name="id" /></td>\n' +
+        '                <td>部门负责人</td>\n' +
+        '                <td><input type="text" id="dManager" name="dManager" /><input type="hidden" id="id" name="id" /></td>\n' +
         '            </tr>\n' +
         '        </table>\n' +
         '    </form>';
