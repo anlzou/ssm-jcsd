@@ -95,7 +95,7 @@ function initcategory() {
             hidden: true
         }, {
             field: 'name',
-            title: '单位信息',
+            title: '教材类别名称',
             width: 200
         }]]
     });
@@ -110,7 +110,7 @@ function categoryinsert() {
     $("#tab").append("<div id='dd'></div>");
     /*以页面中的id="dd"的元素作为对话框的内容*/
     $('#dd').dialog({
-        title: '添加单位信息',//对话框的标题
+        title: '添加教材类别信息',//对话框的标题
         width: 300,//对话框的宽度
         closed: false,
         cache: false,//不允许有缓冲
@@ -140,7 +140,7 @@ function categoryinsert() {
     var str = ' <form id="ff" method="post">\n' +
         '        <table>\n' +
         '            <tr>\n' +
-        '                <td>单位信息</td>\n' +
+        '                <td>教材类别名称</td>\n' +
         '                <td><input type="text" id="name" name="name" /> </td>\n' +
         '            </tr>\n' +
         '        </table>\n' +
@@ -159,7 +159,7 @@ function categoryupdate(row) {
     $("#tab").append("<div id='dd'></div>");
     /*以页面中的id="dd"的元素作为对话框的内容*/
     $('#dd').dialog({
-        title: '更新单位信息',//对话框的标题
+        title: '更新教材类别信息',//对话框的标题
         width: 300,//对话框的宽度
         closed: false,
         cache: false,//不允许有缓冲
@@ -194,7 +194,7 @@ function categoryupdate(row) {
     var str = ' <form id="ff" method="post">\n' +
         '        <table>\n' +
         '            <tr>\n' +
-        '                <td>单位信息</td>\n' +
+        '                <td>教材类别名称</td>\n' +
         '                <td><input type="text" id="name" name="name" /><input type="hidden" id="id" name="id" /></td>\n' +
         '            </tr>\n' +
         '        </table>\n' +

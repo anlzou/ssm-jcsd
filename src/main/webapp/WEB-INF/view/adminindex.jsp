@@ -9,6 +9,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/easyui-lang-zh_CN.js"></script>
+    <%--  各个模块的动态功能  --%>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/category.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/classse.js"></script>
@@ -23,7 +24,7 @@
                         $(".layout-panel-center .panel-title").text("管理员管理");
                         //动态加js文件
                         if(typeof(initadmin) !="function"){
-                            $.getScript("../js/admin.js",function(){
+                            $.getScript("${pageContext.request.contextPath}/js/admin.js",function(){
                                 initadmin();
                             })
                         }else{

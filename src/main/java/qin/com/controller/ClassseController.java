@@ -34,7 +34,7 @@ public class ClassseController {
             System.out.println(classseList.get(0).getName()+"=="+classseList.get(0).getMajorId()+"=="+classseList.get(0).getMajorName()+"=="+classseList.get(0).getStudentNumber());
             return ServerResponse.createBySuccess(0, classseList);
         } else {
-            return ServerResponse.createByErrorMessage("找不到管理员信息");
+            return ServerResponse.createByErrorMessage("找不到班级信息");
         }
     }
 
@@ -52,7 +52,7 @@ public class ClassseController {
             System.out.println("deleteall ok!======1");
             if (classesService.deleteByList(deleteids) > 0) {//按照列表删除
                 System.out.println("deleteall ok!======2");
-                return ServerResponse.createBySuccess(ResponseCode.SUCCESS.getCode(), "删除管理员成功");
+                return ServerResponse.createBySuccess(ResponseCode.SUCCESS.getCode(), "删除班级信息成功");
             } else {
                 System.out.println("删除不成功");
                 return ServerResponse.createByErrorCodeMessage(ResponseCode.ERROR.getCode(), "删除数据失败");
