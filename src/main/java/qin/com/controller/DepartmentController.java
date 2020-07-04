@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import qin.com.common.ResponseCode;
 import qin.com.common.ServerResponse;
-import qin.com.entity.Course;
 import qin.com.entity.Department;
 import qin.com.service.DepartmentService;
 
@@ -74,9 +73,7 @@ public class DepartmentController {
         department.setName(record.getName());
         department.setdManager(record.getdManager());
         System.out.println("Course更新数据==" + department.getId() + "==" + department.getName());
-//        System.out.println("name_old:+"+name_old);
-//        if (categoryService.updateByPrimaryName(name_old,category.getName()) > 0) {
-        if (departmentService.updateByPrimaryKeySelective(department) > 0) {
+        if (departmentService.updateByPrimaryKey(department) > 0) {
             System.out.println("Course表更新成功");
             return ServerResponse.createBySuccess("更新数据成功", record);
         } else {

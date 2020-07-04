@@ -30,40 +30,40 @@
     values (#{name,jdbcType=VARCHAR}, #{dManager,jdbcType=VARCHAR}, now(),
       now())
   </insert>
-  <insert id="insertSelective" parameterType="qin.com.entity.Department" >
-    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into department
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="name != null" >
-        name,
-      </if>
-      <if test="dManager != null" >
-        d_manager,
-      </if>
-      <if test="createTime != null" >
-        create_time,
-      </if>
-      <if test="updateTime != null" >
-        update_time,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="dManager != null" >
-        #{dManager,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null" >
-        now(),
-      </if>
-      <if test="updateTime != null" >
-        now(),
-      </if>
-    </trim>
-  </insert>
+<!--  <insert id="insertSelective" parameterType="qin.com.entity.Department" >-->
+<!--    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >-->
+<!--      SELECT LAST_INSERT_ID()-->
+<!--    </selectKey>-->
+<!--    insert into department-->
+<!--    <trim prefix="(" suffix=")" suffixOverrides="," >-->
+<!--      <if test="name != null" >-->
+<!--        name,-->
+<!--      </if>-->
+<!--      <if test="dManager != null" >-->
+<!--        d_manager,-->
+<!--      </if>-->
+<!--      <if test="createTime != null" >-->
+<!--        create_time,-->
+<!--      </if>-->
+<!--      <if test="updateTime != null" >-->
+<!--        update_time,-->
+<!--      </if>-->
+<!--    </trim>-->
+<!--    <trim prefix="values (" suffix=")" suffixOverrides="," >-->
+<!--      <if test="name != null" >-->
+<!--        #{name,jdbcType=VARCHAR},-->
+<!--      </if>-->
+<!--      <if test="dManager != null" >-->
+<!--        #{dManager,jdbcType=VARCHAR},-->
+<!--      </if>-->
+<!--      <if test="createTime != null" >-->
+<!--        now(),-->
+<!--      </if>-->
+<!--      <if test="updateTime != null" >-->
+<!--        now(),-->
+<!--      </if>-->
+<!--    </trim>-->
+<!--  </insert>-->
   <update id="updateByPrimaryKeySelective" parameterType="qin.com.entity.Department" >
     update department
     <set >
@@ -72,9 +72,6 @@
       </if>
       <if test="dManager != null" >
         d_manager = #{dManager,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null" >
         update_time = now(),
@@ -86,8 +83,7 @@
     update department
     set name = #{name,jdbcType=VARCHAR},
       d_manager = #{dManager,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      update_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
 

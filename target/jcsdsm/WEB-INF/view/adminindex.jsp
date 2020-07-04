@@ -14,7 +14,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/category.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/classse.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/course.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/department.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/departmentx.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jc.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/levels.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/major.js"></script>
@@ -45,7 +45,7 @@
                         $(".layout-panel-center .panel-title").text("单位信息列表");
                         //动态加js文件
                         if(typeof(initdepartment) !="function"){
-                            $.getScript("${pageContext.request.contextPath}/js/department.js",function(){
+                            $.getScript("${pageContext.request.contextPath}/js/departmentx.js",function(){
                                 initdepartment();
                             })
                         }else{

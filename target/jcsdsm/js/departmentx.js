@@ -101,6 +101,14 @@ function initdepartment() {
             field: 'dManager',
             title: '部门负责人',
             width: 200
+        }, {
+            field: 'createTime',
+            title: '创建日期',
+            width: 200
+        }, {
+            field: 'updateTime',
+            title: '修改日期',
+            width: 200
         }]]
     });
 }
