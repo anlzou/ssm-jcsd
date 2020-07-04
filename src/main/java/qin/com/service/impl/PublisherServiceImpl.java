@@ -12,6 +12,8 @@ import qin.com.entity.Publisher;
 import qin.com.mapper.PublisherMapper;
 import qin.com.service.PublisherService;
 
+import java.util.List;
+
 @Service("publisherServiceImpl")  //注解为业务类，并且方便在控制器中注入我们这个业务类
 public class PublisherServiceImpl implements PublisherService {
     @Autowired
@@ -45,5 +47,15 @@ public class PublisherServiceImpl implements PublisherService {
     @Override
     public int updateByPrimaryKey(Publisher record) {
         return publisherMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<Publisher> selectAll() {
+        return publisherMapper.selectAll();
+    }
+
+    @Override
+    public int deleteByList(String[] deleteids) {
+        return publisherMapper.deleteByList(deleteids);
     }
 }

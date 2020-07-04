@@ -17,6 +17,8 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jc.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/levels.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/major.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/publisher.js"></script>
+
     <script type="text/javascript">
         $(function () {
             /*jquery easyui的代码在这里写*/
@@ -114,6 +116,14 @@
                     if (node.id == "publisherlist") {
                         /*单击出版社信息列表时把中间区域的标题设置为出版社信息列表*/
                         $(".layout-panel-center .panel-title").text("出版社信息列表");
+                        //动态加js文件
+                        if(typeof(initpublisher) !="function"){
+                            $.getScript("${pageContext.request.contextPath}/js/publisher.js",function(){
+                                initpublisher();
+                            })
+                        }else{
+                            initpublisher();
+                        }
                     }
 
                     /*单击导航栏中的课程信息列表结点*/

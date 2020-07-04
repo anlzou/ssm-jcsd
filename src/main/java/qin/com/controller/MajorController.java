@@ -72,9 +72,9 @@ public class MajorController {
         major.setId(record.getId());//更新操作必须要有id主关键字段
         major.setName(record.getName());
         major.setUpdateTime(record.getUpdateTime());
-        System.out.println("Levels更新数据==" + major.getId() + "==" + major.getName());
+        System.out.println("Major更新数据==" + major.getId() + "==" + major.getName());
         if (majorService.updateByPrimaryKey(major) > 0) {
-            System.out.println("Levels表更新成功");
+            System.out.println("Major表更新成功");
             return ServerResponse.createBySuccess("更新管理数据成功", record);
         } else {
             return ServerResponse.createByErrorMessage("更新管理数据失败");

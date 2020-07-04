@@ -78,7 +78,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-    <!--修改查询内容，去掉时间的查询，时间为0无法运行-->
+    <!--查询所有内容-->
     <select id="selectAll" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select *
             from category
