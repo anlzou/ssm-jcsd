@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import qin.com.common.Logging;
 import qin.com.common.ResponseCode;
 import qin.com.common.ServerResponse;
 import qin.com.entity.Classse;
@@ -29,7 +30,7 @@ public class ClassseController {
     public ServerResponse listall(HttpServletRequest request, HttpServletResponse response) {
         List<Classse> classseList = classesService.selectAll();
         System.out.println("Classse：进入查询控制器");
-        if (classseList.size() > 0) {
+        if (Logging.logging == 1 && classseList.size() > 0) {
             System.out.println("Classse：查询成功");
             System.out.println(classseList.get(0).getName()+"=="+classseList.get(0).getMajorId()+"=="+classseList.get(0).getMajorName()+"=="+classseList.get(0).getStudentNumber());
             return ServerResponse.createBySuccess(0, classseList);
@@ -50,7 +51,7 @@ public class ClassseController {
 //        System.out.println(deleteids);
         if (deleteids != null && deleteids.length > 0) {
             System.out.println("deleteall ok!======1");
-            if (classesService.deleteByList(deleteids) > 0) {//按照列表删除
+            if (Logging.logging == 1 && classesService.deleteByList(deleteids) > 0) {//按照列表删除
                 System.out.println("deleteall ok!======2");
                 return ServerResponse.createBySuccess(ResponseCode.SUCCESS.getCode(), "删除班级信息成功");
             } else {
@@ -76,7 +77,7 @@ public class ClassseController {
         classse.setMajorName(record.getMajorName());
         classse.setStudentNumber(record.getStudentNumber());
         System.out.println("Classse更新数据==" + classse.getId() + "==" + classse.getName());
-        if (classesService.updateByPrimaryKey(classse) > 0) {
+        if (Logging.logging == 1 && classesService.updateByPrimaryKey(classse) > 0) {
             System.out.println("Classse表更新成功");
             return ServerResponse.createBySuccess("更新管理数据成功", record);
         } else {
@@ -97,7 +98,7 @@ public class ClassseController {
         classse.setMajorName(record.getMajorName());
         classse.setStudentNumber(record.getStudentNumber());
         System.out.println("MajorID:"+classse.getMajorId()+"=:MajorName:"+classse.getMajorName()+"=StudentNumber:"+classse.getStudentNumber());
-        if (classesService.insert(classse) > 0) {
+        if (Logging.logging == 1 && classesService.insert(classse) > 0) {
             return ServerResponse.createBySuccess("添加管理数据成功", classse);
         } else {
             return ServerResponse.createByErrorMessage("添加管理员数据失败");

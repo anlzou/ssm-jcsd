@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import qin.com.common.Logging;
 import qin.com.common.ResponseCode;
 import qin.com.common.ServerResponse;
 import qin.com.entity.Jc;
@@ -31,7 +32,7 @@ public class JcController {
     public ServerResponse listall(HttpServletRequest request, HttpServletResponse response) {
         List<Jc> jcList = jcService.selectAll();
         System.out.println("Jc：进入查询控制器");
-        if (jcList.size() > 0) {
+        if (Logging.logging == 1 && jcList.size() > 0) {
             System.out.println("Jc：查询成功");
             return ServerResponse.createBySuccess(0, jcList);
         } else {
@@ -51,7 +52,7 @@ public class JcController {
 //        System.out.println(deleteids);
         if (deleteids != null && deleteids.length > 0) {
             System.out.println("deleteall ok!======1");
-            if (jcService.deleteByList(deleteids) > 0) {//按照列表删除
+            if (Logging.logging == 1 && jcService.deleteByList(deleteids) > 0) {//按照列表删除
                 System.out.println("deleteall ok!======2");
                 return ServerResponse.createBySuccess(ResponseCode.SUCCESS.getCode(), "删除信息成功");
             } else {
@@ -93,7 +94,7 @@ public class JcController {
         jcWithBLOBs.setkOverview(record.getkOverview());
         jcWithBLOBs.setCompanyOption(record.getCompanyOption());
         jcWithBLOBs.setDepartOpinion(record.getDepartOpinion());
-        if (jcService.updateByPrimaryKey(jcWithBLOBs) > 0) {
+        if (Logging.logging == 1 && jcService.updateByPrimaryKey(jcWithBLOBs) > 0) {
             System.out.println("Jc表更新成功");
             return ServerResponse.createBySuccess("更新数据成功", record);
         } else {
@@ -130,86 +131,11 @@ public class JcController {
         jcWithBLOBs.setkOverview(record.getkOverview());
         jcWithBLOBs.setCompanyOption(record.getCompanyOption());
         jcWithBLOBs.setDepartOpinion(record.getDepartOpinion());
-        if (jcService.insert(jcWithBLOBs) > 0) {
+        if (Logging.logging == 1 && jcService.insert(jcWithBLOBs) > 0) {
             System.out.println("Jc表插入成功");
             return ServerResponse.createBySuccess("添加数据成功", jcWithBLOBs);
         } else {
             return ServerResponse.createByErrorMessage("添加数据失败");
         }
     }
-
-//    /**
-//     * 更新
-//     * ok
-//     */
-//    @RequestMapping("/updateByPrimaryKeySelectiveJc")
-//    @ResponseBody
-//    public ServerResponse updateByPrimaryKeySelective(Jc record) {
-//        System.out.println("更新数据："+record);
-//        Jc jc = new Jc();
-//        jc.setId(record.getId());
-//        jc.setName(record.getName());
-//        jc.setIsbn(record.getIsbn());
-//        jc.setAuthor(record.getAuthor());
-//        jc.setPublisherId(record.getPublisherId());
-//        jc.setPrice(record.getPrice());
-////        jc.setPubdate(record.getPubdate());
-//        jc.setCategoryId(record.getCategoryId());
-//        jc.setMajorText(record.getMajorText());
-//        jc.setClassseId(record.getClassseId());
-//        jc.setClassseText(record.getClassseText());
-//        jc.setLevelsId(record.getLevelsId());
-//        jc.setCourseId(record.getCourseId());
-//        jc.setCourseName(record.getCourseName());
-//        jc.setTeacherUse(record.getTeacherUse());
-//        jc.setYesorno(record.getYesorno());
-//        jc.setSdDatetime(record.getSdDatetime());
-//        jc.setSdTeacher(record.getSdTeacher());
-//        jc.setkOverview(record.getkOverview());
-//        jc.setCompanyOption(record.getCompanyOption());
-//        jc.setDepartOpinion(record.getDepartOpinion());
-//        if (jcService.updateByPrimaryKeySelective(jc) > 0) {
-//            System.out.println("Jc表更新成功");
-//            return ServerResponse.createBySuccess("更新数据成功", record);
-//        } else {
-//            return ServerResponse.createByErrorMessage("更新数据失败");
-//        }
-//    }
-//    /**
-//     * 插入数据
-//     * ok
-//     */
-//    @RequestMapping("/insertSelectiveJc")
-//    @ResponseBody
-//    public ServerResponse insertSelective(Jc record) {
-//        System.out.println("插入数据："+record);
-//        Jc jc = new Jc();
-//        jc.setId(record.getId());
-//        jc.setName(record.getName());
-//        jc.setIsbn(record.getIsbn());
-//        jc.setAuthor(record.getAuthor());
-//        jc.setPublisherId(record.getPublisherId());
-//        jc.setPrice(record.getPrice());
-////        jc.setPubdate(record.getPubdate());
-//        jc.setCategoryId(record.getCategoryId());
-//        jc.setMajorText(record.getMajorText());
-//        jc.setClassseId(record.getClassseId());
-//        jc.setClassseText(record.getClassseText());
-//        jc.setLevelsId(record.getLevelsId());
-//        jc.setCourseId(record.getCourseId());
-//        jc.setCourseName(record.getCourseName());
-//        jc.setTeacherUse(record.getTeacherUse());
-//        jc.setYesorno(record.getYesorno());
-//        jc.setSdDatetime(record.getSdDatetime());
-//        jc.setSdTeacher(record.getSdTeacher());
-//        jc.setkOverview(record.getkOverview());
-//        jc.setCompanyOption(record.getCompanyOption());
-//        jc.setDepartOpinion(record.getDepartOpinion());
-//        if (jcService.insert(jc) > 0) {
-//            System.out.println("Jc表插入成功");
-//            return ServerResponse.createBySuccess("添加数据成功", jc);
-//        } else {
-//            return ServerResponse.createByErrorMessage("添加数据失败");
-//        }
-//    }
 }

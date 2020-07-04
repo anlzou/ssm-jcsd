@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import qin.com.common.Logging;
 import qin.com.common.ResponseCode;
 import qin.com.common.ServerResponse;
 import qin.com.entity.Major;
@@ -29,7 +30,7 @@ public class MajorController {
     public ServerResponse listall(HttpServletRequest request, HttpServletResponse response) {
         List<Major> majorList = majorService.selectAll();
         System.out.println("Major表查询："+majorList);
-        if (majorList.size() > 0) {
+        if (Logging.logging == 1 && majorList.size() > 0) {
             System.out.println("查询成功");
             return ServerResponse.createBySuccess(0, majorList);
         } else {
@@ -49,7 +50,7 @@ public class MajorController {
 //        System.out.println(deleteids);
         if (deleteids != null && deleteids.length > 0) {
             System.out.println("deleteall ok!======1");
-            if (majorService.deleteByList(deleteids) > 0) {//按照列表删除
+            if (Logging.logging == 1 && majorService.deleteByList(deleteids) > 0) {//按照列表删除
                 System.out.println("deleteall ok!======2");
                 return ServerResponse.createBySuccess(ResponseCode.SUCCESS.getCode(), "删除管理员成功");
             } else {
@@ -73,7 +74,7 @@ public class MajorController {
         major.setName(record.getName());
         major.setUpdateTime(record.getUpdateTime());
         System.out.println("Major更新数据==" + major.getId() + "==" + major.getName());
-        if (majorService.updateByPrimaryKey(major) > 0) {
+        if (Logging.logging == 1 && majorService.updateByPrimaryKey(major) > 0) {
             System.out.println("Major表更新成功");
             return ServerResponse.createBySuccess("更新管理数据成功", record);
         } else {
@@ -90,7 +91,7 @@ public class MajorController {
     public ServerResponse insertSelective(Major record) {
         Major major = new Major();
         major.setName(record.getName());
-        if (majorService.insert(major) > 0) {
+        if (Logging.logging == 1 && majorService.insert(major) > 0) {
             return ServerResponse.createBySuccess("添加管理数据成功", major);
         } else {
             return ServerResponse.createByErrorMessage("添加管理员数据失败");

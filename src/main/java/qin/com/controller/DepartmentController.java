@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import qin.com.common.Logging;
 import qin.com.common.ResponseCode;
 import qin.com.common.ServerResponse;
 import qin.com.entity.Department;
@@ -29,7 +30,7 @@ public class DepartmentController {
     public ServerResponse listall(HttpServletRequest request, HttpServletResponse response) {
         List<Department> departmentList = departmentService.selectAll();
         System.out.println("Department：进入查询控制器");
-        if (departmentList.size() > 0) {
+        if (Logging.logging == 1 && departmentList.size() > 0) {
             System.out.println("Department：查询成功");
             return ServerResponse.createBySuccess(0, departmentList);
         } else {
@@ -49,7 +50,7 @@ public class DepartmentController {
 //        System.out.println(deleteids);
         if (deleteids != null && deleteids.length > 0) {
             System.out.println("deleteall ok!======1");
-            if (departmentService.deleteByList(deleteids) > 0) {//按照列表删除
+            if (Logging.logging == 1 && departmentService.deleteByList(deleteids) > 0) {//按照列表删除
                 System.out.println("deleteall ok!======2");
                 return ServerResponse.createBySuccess(ResponseCode.SUCCESS.getCode(), "删除信息成功");
             } else {
@@ -73,7 +74,7 @@ public class DepartmentController {
         department.setName(record.getName());
         department.setdManager(record.getdManager());
         System.out.println("Course更新数据==" + department.getId() + "==" + department.getName());
-        if (departmentService.updateByPrimaryKey(department) > 0) {
+        if (Logging.logging == 1 && departmentService.updateByPrimaryKey(department) > 0) {
             System.out.println("Course表更新成功");
             return ServerResponse.createBySuccess("更新数据成功", record);
         } else {
@@ -92,7 +93,7 @@ public class DepartmentController {
         department.setId(record.getId());
         department.setName(record.getName());
         department.setdManager(record.getdManager());
-        if (departmentService.insert(department) > 0) {
+        if (Logging.logging == 1 && departmentService.insert(department) > 0) {
             return ServerResponse.createBySuccess("添加数据成功", department);
         } else {
             return ServerResponse.createByErrorMessage("添加数据失败");

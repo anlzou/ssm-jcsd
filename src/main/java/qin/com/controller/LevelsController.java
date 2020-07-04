@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import qin.com.common.Logging;
 import qin.com.common.ResponseCode;
 import qin.com.common.ServerResponse;
 import qin.com.entity.Levels;
@@ -29,7 +30,7 @@ public class LevelsController {
     public ServerResponse listall(HttpServletRequest request, HttpServletResponse response) {
         List<Levels> levelsList = levelsService.selectAll();
         System.out.println("Levels表查询："+levelsList);
-        if (levelsList.size() > 0) {
+        if (Logging.logging == 1 && levelsList.size() > 0) {
             System.out.println("查询成功");
             return ServerResponse.createBySuccess(0, levelsList);
         } else {
@@ -49,7 +50,7 @@ public class LevelsController {
 //        System.out.println(deleteids);
         if (deleteids != null && deleteids.length > 0) {
             System.out.println("deleteall ok!======1");
-            if (levelsService.deleteByList(deleteids) > 0) {//按照列表删除
+            if (Logging.logging == 1 && levelsService.deleteByList(deleteids) > 0) {//按照列表删除
                 System.out.println("deleteall ok!======2");
                 return ServerResponse.createBySuccess(ResponseCode.SUCCESS.getCode(), "删除管理员成功");
             } else {
@@ -73,7 +74,7 @@ public class LevelsController {
         levels.setName(record.getName());
         levels.setUpdateTime(record.getUpdateTime());
         System.out.println("Levels更新数据==" + levels.getId() + "==" + levels.getName());
-        if (levelsService.updateByPrimaryKey(levels) > 0) {
+        if (Logging.logging == 1 && levelsService.updateByPrimaryKey(levels) > 0) {
             System.out.println("Levels表更新成功");
             return ServerResponse.createBySuccess("更新管理数据成功", record);
         } else {
@@ -90,7 +91,7 @@ public class LevelsController {
     public ServerResponse insertSelective(Levels record) {
         Levels levels = new Levels();
         levels.setName(record.getName());
-        if (levelsService.insert(levels) > 0) {
+        if (Logging.logging == 1 && levelsService.insert(levels) > 0) {
             return ServerResponse.createBySuccess("添加管理数据成功", levels);
         } else {
             return ServerResponse.createByErrorMessage("添加管理员数据失败");

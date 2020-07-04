@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import qin.com.common.Logging;
 import qin.com.common.ResponseCode;
 import qin.com.common.ServerResponse;
 import qin.com.entity.Teacher;
@@ -29,7 +30,7 @@ public class TeacherController {
     public ServerResponse listall(HttpServletRequest request, HttpServletResponse response) {
         List<Teacher> teacherList = teacherService.selectAll();
         System.out.println("Teacher表查询："+teacherList);
-        if (teacherList.size() > 0) {
+        if (Logging.logging == 1 && teacherList.size() > 0) {
             System.out.println("查询成功");
             return ServerResponse.createBySuccess(0, teacherList);
         } else {
@@ -49,7 +50,7 @@ public class TeacherController {
 //        System.out.println(deleteids);
         if (deleteids != null && deleteids.length > 0) {
             System.out.println("deleteall ok!======1");
-            if (teacherService.deleteByList(deleteids) > 0) {//按照列表删除
+            if (Logging.logging == 1 && teacherService.deleteByList(deleteids) > 0) {//按照列表删除
                 System.out.println("deleteall ok!======2");
                 return ServerResponse.createBySuccess(ResponseCode.SUCCESS.getCode(), "删除管理员成功");
             } else {
@@ -83,7 +84,7 @@ public class TeacherController {
         teacher.setUpdateTime(record.getUpdateTime());
         teacher.setUtype(record.getUtype());
         System.out.println("Publisher更新数据==" + teacher.getId() + "==" + teacher.getName());
-        if (teacherService.updateByPrimaryKey(teacher) > 0) {
+        if (Logging.logging == 1 && teacherService.updateByPrimaryKey(teacher) > 0) {
             System.out.println("Publisher表更新成功");
             return ServerResponse.createBySuccess("更新管理数据成功", record);
         } else {
@@ -112,7 +113,7 @@ public class TeacherController {
         teacher.setCreateTime(record.getCreateTime());
         teacher.setUpdateTime(record.getUpdateTime());
         teacher.setUtype(record.getUtype());
-        if (teacherService.insert(teacher) > 0) {
+        if (Logging.logging == 1 && teacherService.insert(teacher) > 0) {
             return ServerResponse.createBySuccess("添加数据成功", teacher);
         } else {
             return ServerResponse.createByErrorMessage("添加数据失败");
