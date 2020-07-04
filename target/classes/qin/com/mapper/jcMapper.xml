@@ -56,7 +56,7 @@
             SELECT LAST_INSERT_ID()
         </selectKey>
         insert into jc (name, isbn, author,
-        publisher_id, price, pubdate
+        publisher_id, price, pubdate,
         category_id, major_text, classse_id,
         classse_text, levels_id, course_id,
         course_name, teacher_use, yesorno,

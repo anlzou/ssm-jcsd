@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface JcMapper {
     int deleteByPrimaryKey(Integer id);
-    int insert(JcWithBLOBs record);
+    int insert(Jc record);
     int insertSelective(Jc record);
     Jc selectByPrimaryKey(Integer id);
     int updateByPrimaryKeySelective(JcWithBLOBs record);

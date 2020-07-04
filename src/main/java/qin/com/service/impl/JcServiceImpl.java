@@ -27,7 +27,7 @@ public class JcServiceImpl implements JcService {
     }
 
     @Override
-    public int insert(JcWithBLOBs record) {
+    public int insert(Jc record) {
         return jcMapper.insert((JcWithBLOBs) record);
     }
 

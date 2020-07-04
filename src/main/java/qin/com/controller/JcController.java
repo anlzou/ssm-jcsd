@@ -115,7 +115,7 @@ public class JcController {
         jcWithBLOBs.setAuthor(record.getAuthor());
         jcWithBLOBs.setPublisherId(record.getPublisherId());
         jcWithBLOBs.setPrice(record.getPrice());
-//        jcWithBLOBs.setPubdate(record.getPubdate());
+        jcWithBLOBs.setPubdate(record.getPubdate());
         jcWithBLOBs.setCategoryId(record.getCategoryId());
         jcWithBLOBs.setMajorText(record.getMajorText());
         jcWithBLOBs.setClassseId(record.getClassseId());
