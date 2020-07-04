@@ -152,14 +152,10 @@ public class AdminController {
 
     @RequestMapping("/listall")
     @ResponseBody
-    public ServerResponse listall(HttpServletRequest request, HttpServletResponse response) {
-        List<Admin> adminlist = adminService.selectAll();
-        System.out.println(adminlist);
-        if (Logging.logging == 1 && adminlist.size() > 0) {
-            return ServerResponse.createBySuccess(0, adminlist);
-        } else {
-            return ServerResponse.createByErrorMessage("找不到管理员信息");
-        }
+    public List<Admin>  listall(HttpServletRequest request, HttpServletResponse response) {
+        if (Logging.logging == 1)
+            return adminService.selectAll();
+        return null;
     }
 
 

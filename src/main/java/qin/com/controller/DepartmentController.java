@@ -27,15 +27,10 @@ public class DepartmentController {
      */
     @RequestMapping("/listallDepartment")
     @ResponseBody
-    public ServerResponse listall(HttpServletRequest request, HttpServletResponse response) {
-        List<Department> departmentList = departmentService.selectAll();
-        System.out.println("Department：进入查询控制器");
-        if (Logging.logging == 1 && departmentList.size() > 0) {
-            System.out.println("Department：查询成功");
-            return ServerResponse.createBySuccess(0, departmentList);
-        } else {
-            return ServerResponse.createByErrorMessage("找不到部门信息");
-        }
+    public List<Department> listall(HttpServletRequest request, HttpServletResponse response) {
+        if (Logging.logging == 1)
+            return departmentService.selectAll();
+        return null;
     }
 
     /**

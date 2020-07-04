@@ -27,15 +27,10 @@ public class CourseController {
      */
     @RequestMapping("/listallCourse")
     @ResponseBody
-    public ServerResponse listall(HttpServletRequest request, HttpServletResponse response) {
-        List<Course> courseList = courseService.selectAll();
-        System.out.println("Course：进入查询控制器");
-        if (Logging.logging == 1 && courseList.size() > 0) {
-            System.out.println("Course：查询成功");
-            return ServerResponse.createBySuccess(0, courseList);
-        } else {
-            return ServerResponse.createByErrorMessage("找不到班级信息");
-        }
+    public List<Course>  listall(HttpServletRequest request, HttpServletResponse response) {
+        if (Logging.logging == 1)
+            return courseService.selectAll();
+        return null;
     }
 
     /**

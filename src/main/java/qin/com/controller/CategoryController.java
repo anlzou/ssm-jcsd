@@ -28,13 +28,10 @@ public class CategoryController {
      */
     @RequestMapping("/listallCategory")
     @ResponseBody
-    public ServerResponse listall(HttpServletRequest request, HttpServletResponse response) {
-        List<Category> categoryList = categoryService.selectAll();
-        if (Logging.logging == 1 && categoryList.size() > 0) {
-            return ServerResponse.createBySuccess(0, categoryList);
-        } else {
-            return ServerResponse.createByErrorMessage("找不到管理员信息");
-        }
+    public List<Category> listall(HttpServletRequest request, HttpServletResponse response) {
+        if (Logging.logging == 1)
+            return categoryService.selectAll();
+        return null;
     }
 
     /**

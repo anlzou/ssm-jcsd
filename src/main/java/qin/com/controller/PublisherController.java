@@ -27,15 +27,10 @@ public class PublisherController {
      */
     @RequestMapping("/listallPublisher")
     @ResponseBody
-    public ServerResponse listall(HttpServletRequest request, HttpServletResponse response) {
-        List<Publisher> publisherList = publisherService.selectAll();
-        System.out.println("Publisher表查询："+publisherList);
-        if (Logging.logging == 1 && publisherList.size() > 0) {
-            System.out.println("查询成功");
-            return ServerResponse.createBySuccess(0, publisherList);
-        } else {
-            return ServerResponse.createByErrorMessage("找不到信息");
-        }
+    public List<Publisher> listall(HttpServletRequest request, HttpServletResponse response) {
+        if (Logging.logging == 1)
+            return publisherService.selectAll();
+        return null;
     }
 
     /**

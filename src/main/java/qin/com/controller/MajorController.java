@@ -27,15 +27,10 @@ public class MajorController {
      */
     @RequestMapping("/listallMajor")
     @ResponseBody
-    public ServerResponse listall(HttpServletRequest request, HttpServletResponse response) {
-        List<Major> majorList = majorService.selectAll();
-        System.out.println("Major表查询："+majorList);
-        if (Logging.logging == 1 && majorList.size() > 0) {
-            System.out.println("查询成功");
-            return ServerResponse.createBySuccess(0, majorList);
-        } else {
-            return ServerResponse.createByErrorMessage("找不到信息");
-        }
+    public List<Major> listall(HttpServletRequest request, HttpServletResponse response) {
+        if (Logging.logging == 1)
+            return majorService.selectAll();
+        return null;
     }
 
     /**

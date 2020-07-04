@@ -29,15 +29,10 @@ public class JcController {
      */
     @RequestMapping("/listallJc")
     @ResponseBody
-    public ServerResponse listall(HttpServletRequest request, HttpServletResponse response) {
-        List<Jc> jcList = jcService.selectAll();
-        System.out.println("Jc：进入查询控制器");
-        if (Logging.logging == 1 && jcList.size() > 0) {
-            System.out.println("Jc：查询成功");
-            return ServerResponse.createBySuccess(0, jcList);
-        } else {
-            return ServerResponse.createByErrorMessage("找不到部门信息");
-        }
+    public List<Jc> listall(HttpServletRequest request, HttpServletResponse response) {
+        if (Logging.logging == 1)
+            return jcService.selectAll();
+        return null;
     }
 
     /**

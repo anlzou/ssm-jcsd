@@ -27,15 +27,10 @@ public class TeacherController {
      */
     @RequestMapping("/listallTeacher")
     @ResponseBody
-    public ServerResponse listall(HttpServletRequest request, HttpServletResponse response) {
-        List<Teacher> teacherList = teacherService.selectAll();
-        System.out.println("Teacher表查询："+teacherList);
-        if (Logging.logging == 1 && teacherList.size() > 0) {
-            System.out.println("查询成功");
-            return ServerResponse.createBySuccess(0, teacherList);
-        } else {
-            return ServerResponse.createByErrorMessage("找不到信息");
-        }
+    public List<Teacher> listall(HttpServletRequest request, HttpServletResponse response) {
+        if (Logging.logging == 1)
+            return teacherService.selectAll();
+        return null;
     }
 
     /**

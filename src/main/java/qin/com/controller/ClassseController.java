@@ -27,16 +27,10 @@ public class ClassseController {
      */
     @RequestMapping("/listallClassse")
     @ResponseBody
-    public ServerResponse listall(HttpServletRequest request, HttpServletResponse response) {
-        List<Classse> classseList = classesService.selectAll();
-        System.out.println("Classse：进入查询控制器");
-        if (Logging.logging == 1 && classseList.size() > 0) {
-            System.out.println("Classse：查询成功");
-            System.out.println(classseList.get(0).getName()+"=="+classseList.get(0).getMajorId()+"=="+classseList.get(0).getMajorName()+"=="+classseList.get(0).getStudentNumber());
-            return ServerResponse.createBySuccess(0, classseList);
-        } else {
-            return ServerResponse.createByErrorMessage("找不到班级信息");
-        }
+    public List<Classse> listall(HttpServletRequest request, HttpServletResponse response) {
+        if (Logging.logging == 1)
+            return classesService.selectAll();
+        return null;
     }
 
     /**

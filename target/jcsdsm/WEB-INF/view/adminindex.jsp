@@ -195,7 +195,9 @@
     </div>
 
     <%--这是南边的区域用于显示系统的版权相关的信息--%>
-    <div data-options="region:'south',split:true" style="height:100px;"></div>
+    <div data-options="region:'south',split:true" style="height:100px; text-align: center">
+        <p>专业：软件工程&nbsp;&nbsp;&nbsp;&nbsp;班级：软件172&nbsp;&nbsp;&nbsp;&nbsp;学号：2017107628&nbsp;&nbsp;&nbsp;&nbsp;姓名：农安作</p>
+    </div>
 
     <!-- 布局中的东边区域去掉    <div data-options="region:'east',iconCls:'icon-reload',title:'East',split:true" style="width:100px;"></div>    -->
     <%--这是西边的区域用于作为系统的侧边导航--%>
@@ -263,9 +265,15 @@
     </div>
 
     <%--这是中间区域用于显示我们操作中心--%>
-    <div data-options="region:'center',title:'center title'" style="padding:5px;background:#eee;">
+    <div data-options="region:'center',title:'工作区域'" style="padding:5px;background:#eee;">
         <%--显示区域--%>
-        <div id="tab"></div>
+        <div id="tab">
+            <p>
+                系统功能：<br/>
+                1. 完成所有模块功能。<br/>
+                2. 控制器访问数据库权限设置，需要先注册&登录。
+            </p>
+        </div>
     </div>
 </body>
 </html>
