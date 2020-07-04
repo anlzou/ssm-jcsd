@@ -111,13 +111,13 @@
       period = #{period,jdbcType=INTEGER},
       Nature = #{nature,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      update_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
 
   <!--查询所有内容-->
   <select id="selectAll" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-        select id,code,name,period,Nature
+        select *
             from course
     </select>
 

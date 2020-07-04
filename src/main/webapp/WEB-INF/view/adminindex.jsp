@@ -13,11 +13,13 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/category.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/classse.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/course.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/department.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jc.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/levels.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/major.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/publisher.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/teacher.js"></script>
 
     <script type="text/javascript">
         $(function () {
@@ -82,6 +84,14 @@
                     if (node.id == "teacherlist") {
                         /*单击教师信息列表时把中间区域的标题设置为信息列表*/
                         $(".layout-panel-center .panel-title").text("教师信息列表");
+                        //动态加js文件
+                        if(typeof(initteacher()) !="function"){
+                            $.getScript("${pageContext.request.contextPath}/js/teacher.js",function(){
+                                initteacher();
+                            })
+                        }else{
+                            initteacher();
+                        }
                     }
 
                     /*单击导航栏中的层次信息列表结点*/
@@ -241,9 +251,9 @@
             <li>
                 <span>个人信息管理</span>
                 <ul>
-                    <li id="adminlist">
-                        <span>修改信息列表</span>
-                    </li>
+<%--                    <li id="adminlist">--%>
+<%--                        <span>修改信息列表</span>--%>
+<%--                    </li>--%>
                     <li id="exitlist">
                         <span>退出系统</span>
                     </li>

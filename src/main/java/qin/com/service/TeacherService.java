@@ -2,6 +2,8 @@ package qin.com.service;
 
 import qin.com.entity.Teacher;
 
+import java.util.List;
+
 public interface TeacherService {
     int deleteByPrimaryKey(Integer id);
     int insert(Teacher record);
@@ -9,4 +11,8 @@ public interface TeacherService {
     Teacher selectByPrimaryKey(Integer id);
     int updateByPrimaryKeySelective(Teacher record);
     int updateByPrimaryKey(Teacher record);
+
+    List<Teacher> selectAll();
+
+    int deleteByList(String[] deleteids);
 }

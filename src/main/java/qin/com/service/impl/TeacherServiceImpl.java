@@ -12,6 +12,8 @@ import qin.com.entity.Teacher;
 import qin.com.mapper.TeacherMapper;
 import qin.com.service.TeacherService;
 
+import java.util.List;
+
 @Service("teacherServiceImpl")  //注解为业务类，并且方便在控制器中注入我们这个业务类
 public class TeacherServiceImpl implements TeacherService {
     @Autowired
@@ -45,5 +47,15 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public int updateByPrimaryKey(Teacher record) {
         return teacherMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<Teacher> selectAll() {
+        return teacherMapper.selectAll();
+    }
+
+    @Override
+    public int deleteByList(String[] deleteids) {
+        return teacherMapper.deleteByList(deleteids);
     }
 }

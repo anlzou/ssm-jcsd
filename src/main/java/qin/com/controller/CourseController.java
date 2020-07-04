@@ -93,6 +93,7 @@ public class CourseController {
     @ResponseBody
     public ServerResponse insertSelective(Course record) {
         Course course = new Course();
+        course.setId(record.getId());
         course.setCode(record.getCode());
         course.setName(record.getName());
         course.setPeriod(record.getPeriod());
