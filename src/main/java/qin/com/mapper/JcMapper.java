@@ -11,11 +11,13 @@ public interface JcMapper {
     int insert(JcWithBLOBs record);
     int insertSelective(Jc record);
     Jc selectByPrimaryKey(Integer id);
-    int updateByPrimaryKeySelective(Jc record);
+    int updateByPrimaryKeySelective(JcWithBLOBs record);
     int updateByPrimaryKeyWithBLOBs(Jc record);
     int updateByPrimaryKey(Jc record);
 
     List<Jc> selectAll();
+
+//    List<JcWithBLOBs> selectAllx();
 
     int deleteByList(@Param("deleteids") String[] deleteids);
 }

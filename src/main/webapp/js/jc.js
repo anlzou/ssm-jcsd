@@ -113,12 +113,11 @@ function initjc() {
             field: 'price',
             title: '价格',
             width: 200
-        },{
-        // }, {
-        //     field: 'pubdate',
-        //     title: '开课时间',
-        //     width: 200
-        // }, {
+        }, {
+            field: 'pubdate',
+            title: '开课时间',
+            width: 200
+        }, {
             field: 'categoryId',
             title: '专业编号',
             width: 200
@@ -173,6 +172,14 @@ function initjc() {
         }, {
             field: 'companyOption',
             title: '单位审核意见',
+            width: 200
+        }, {
+            field: 'createTime',
+            title: '创建日期',
+            width: 200
+        }, {
+            field: 'updateTime',
+            title: '修改日期',
             width: 200
         }]]
     });
@@ -364,7 +371,7 @@ function jcupdate(row) {
         '            </tr>\n' +
         // '            <tr>\n' +
         // '                <td>开课时间</td>\n' +
-        // '                <td><input type="date" id="pubdate" name="pubdate" /> </td>\n' +
+        // '                <td><input type="datetime-local" id="pubdate" name="pubdate" /> </td>\n' +
         // '            </tr>\n' +
         '            <tr>\n' +
         '                <td>专业编号</td>\n' +

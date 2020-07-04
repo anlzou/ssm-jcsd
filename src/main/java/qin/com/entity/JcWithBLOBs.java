@@ -1,5 +1,7 @@
 package qin.com.entity;
 
+import java.util.List;
+
 public class JcWithBLOBs extends Jc {
     private String kOverview;
 

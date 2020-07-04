@@ -20,6 +20,7 @@ public class JcController {
     @Resource(name = "jcServiceImpl")
     @Autowired
     private JcService jcService;
+//    private JcWithBLOBs jcWithBLOBs;
 
     /**
      * 查询所有数据
@@ -77,7 +78,7 @@ public class JcController {
         jcWithBLOBs.setAuthor(record.getAuthor());
         jcWithBLOBs.setPublisherId(record.getPublisherId());
         jcWithBLOBs.setPrice(record.getPrice());
-//        jcWithBLOBs.setPubdate(record.getPubdate());
+        jcWithBLOBs.setPubdate(record.getPubdate());
         jcWithBLOBs.setCategoryId(record.getCategoryId());
         jcWithBLOBs.setMajorText(record.getMajorText());
         jcWithBLOBs.setClassseId(record.getClassseId());
@@ -92,7 +93,7 @@ public class JcController {
         jcWithBLOBs.setkOverview(record.getkOverview());
         jcWithBLOBs.setCompanyOption(record.getCompanyOption());
         jcWithBLOBs.setDepartOpinion(record.getDepartOpinion());
-        if (jcService.updateByPrimaryKeySelective(jcWithBLOBs) > 0) {
+        if (jcService.updateByPrimaryKey(jcWithBLOBs) > 0) {
             System.out.println("Jc表更新成功");
             return ServerResponse.createBySuccess("更新数据成功", record);
         } else {
@@ -136,4 +137,79 @@ public class JcController {
             return ServerResponse.createByErrorMessage("添加数据失败");
         }
     }
+
+//    /**
+//     * 更新
+//     * ok
+//     */
+//    @RequestMapping("/updateByPrimaryKeySelectiveJc")
+//    @ResponseBody
+//    public ServerResponse updateByPrimaryKeySelective(Jc record) {
+//        System.out.println("更新数据："+record);
+//        Jc jc = new Jc();
+//        jc.setId(record.getId());
+//        jc.setName(record.getName());
+//        jc.setIsbn(record.getIsbn());
+//        jc.setAuthor(record.getAuthor());
+//        jc.setPublisherId(record.getPublisherId());
+//        jc.setPrice(record.getPrice());
+////        jc.setPubdate(record.getPubdate());
+//        jc.setCategoryId(record.getCategoryId());
+//        jc.setMajorText(record.getMajorText());
+//        jc.setClassseId(record.getClassseId());
+//        jc.setClassseText(record.getClassseText());
+//        jc.setLevelsId(record.getLevelsId());
+//        jc.setCourseId(record.getCourseId());
+//        jc.setCourseName(record.getCourseName());
+//        jc.setTeacherUse(record.getTeacherUse());
+//        jc.setYesorno(record.getYesorno());
+//        jc.setSdDatetime(record.getSdDatetime());
+//        jc.setSdTeacher(record.getSdTeacher());
+//        jc.setkOverview(record.getkOverview());
+//        jc.setCompanyOption(record.getCompanyOption());
+//        jc.setDepartOpinion(record.getDepartOpinion());
+//        if (jcService.updateByPrimaryKeySelective(jc) > 0) {
+//            System.out.println("Jc表更新成功");
+//            return ServerResponse.createBySuccess("更新数据成功", record);
+//        } else {
+//            return ServerResponse.createByErrorMessage("更新数据失败");
+//        }
+//    }
+//    /**
+//     * 插入数据
+//     * ok
+//     */
+//    @RequestMapping("/insertSelectiveJc")
+//    @ResponseBody
+//    public ServerResponse insertSelective(Jc record) {
+//        System.out.println("插入数据："+record);
+//        Jc jc = new Jc();
+//        jc.setId(record.getId());
+//        jc.setName(record.getName());
+//        jc.setIsbn(record.getIsbn());
+//        jc.setAuthor(record.getAuthor());
+//        jc.setPublisherId(record.getPublisherId());
+//        jc.setPrice(record.getPrice());
+////        jc.setPubdate(record.getPubdate());
+//        jc.setCategoryId(record.getCategoryId());
+//        jc.setMajorText(record.getMajorText());
+//        jc.setClassseId(record.getClassseId());
+//        jc.setClassseText(record.getClassseText());
+//        jc.setLevelsId(record.getLevelsId());
+//        jc.setCourseId(record.getCourseId());
+//        jc.setCourseName(record.getCourseName());
+//        jc.setTeacherUse(record.getTeacherUse());
+//        jc.setYesorno(record.getYesorno());
+//        jc.setSdDatetime(record.getSdDatetime());
+//        jc.setSdTeacher(record.getSdTeacher());
+//        jc.setkOverview(record.getkOverview());
+//        jc.setCompanyOption(record.getCompanyOption());
+//        jc.setDepartOpinion(record.getDepartOpinion());
+//        if (jcService.insert(jc) > 0) {
+//            System.out.println("Jc表插入成功");
+//            return ServerResponse.createBySuccess("添加数据成功", jc);
+//        } else {
+//            return ServerResponse.createByErrorMessage("添加数据失败");
+//        }
+//    }
 }

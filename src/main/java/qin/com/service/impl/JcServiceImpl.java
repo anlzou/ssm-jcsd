@@ -19,6 +19,7 @@ import java.util.List;
 public class JcServiceImpl implements JcService {
     @Autowired
     private JcMapper jcMapper;
+    private JcWithBLOBs jcWithBLOBs;
 
     @Override
     public int deleteByPrimaryKey(Integer id) {
@@ -27,7 +28,7 @@ public class JcServiceImpl implements JcService {
 
     @Override
     public int insert(JcWithBLOBs record) {
-        return jcMapper.insert(record);
+        return jcMapper.insert((JcWithBLOBs) record);
     }
 
     @Override
@@ -41,7 +42,7 @@ public class JcServiceImpl implements JcService {
     }
 
     @Override
-    public int updateByPrimaryKeySelective(Jc record) {
+    public int updateByPrimaryKeySelective(JcWithBLOBs record) {
         return jcMapper.updateByPrimaryKeySelective(record);
     }
 
