@@ -32,8 +32,7 @@
 
     <!--查询所有内容-->
     <select id="selectAll" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-        select
-       id, name, pass, phone, email, qq
+        select *
         from admin
     </select>
 
@@ -185,7 +184,6 @@
       phone = #{phone,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
       qq = #{qq,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>

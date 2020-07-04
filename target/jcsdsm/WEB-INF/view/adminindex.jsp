@@ -10,11 +10,11 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/easyui-lang-zh_CN.js"></script>
     <%--  各个模块的动态功能  --%>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/category.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/adminx.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/categoryx.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/classse.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/course.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/department.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/departmentx.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jc.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/levels.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/major.js"></script>
@@ -32,7 +32,7 @@
                         $(".layout-panel-center .panel-title").text("管理员管理");
                         //动态加js文件
                         if(typeof(initadmin) !="function"){
-                            $.getScript("${pageContext.request.contextPath}/js/admin.js",function(){
+                            $.getScript("${pageContext.request.contextPath}/js/adminx.js",function(){
                                 initadmin();
                             })
                         }else{
@@ -45,7 +45,7 @@
                         $(".layout-panel-center .panel-title").text("单位信息列表");
                         //动态加js文件
                         if(typeof(initdepartment) !="function"){
-                            $.getScript("${pageContext.request.contextPath}/js/department.js",function(){
+                            $.getScript("${pageContext.request.contextPath}/js/departmentx.js",function(){
                                 initdepartment();
                             })
                         }else{
@@ -58,7 +58,7 @@
                         $(".layout-panel-center .panel-title").text("教材类别信息列表");
                         //动态加js文件
                         if(typeof(initcategory) !="function"){
-                            $.getScript("${pageContext.request.contextPath}/js/category.js",function(){
+                            $.getScript("${pageContext.request.contextPath}/js/categoryx.js",function(){
                                 initcategory();
                             })
                         }else{

@@ -121,7 +121,7 @@ public class AdminController {
         admin.setEmail(record.getEmail());
         admin.setQq(record.getQq());
         System.out.println("admin更新数据=="+admin.getId()+"=="+admin.getName());
-        if (adminService.updateByPrimaryKeySelective(admin) > 0) {
+        if (adminService.updateByPrimaryKey(admin) > 0) {
             return ServerResponse.createBySuccess("更新管理数据成功", admin);
         } else {
             return ServerResponse.createByErrorMessage("更新管理数据失败");
