@@ -10,18 +10,18 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/easyui-lang-zh_CN.js"></script>
     <%--  各个模块的动态功能  --%>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/main.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/models/main.js"></script>
     <%--  各个模块变量  --%>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/adminx.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/categoryx.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/classse.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/course.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/departmentx.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jc.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/levels.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/major.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/publisher.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/teacher.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/models/admin.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/models/category.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/models/classse.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/models/course.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/models/department.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/models/jc.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/models/levels.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/models/major.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/models/publisher.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/models/teacher.js"></script>
 
     <script type="text/javascript">
         $(function () {
@@ -34,7 +34,7 @@
                         $(".layout-panel-center .panel-title").text("管理员管理");
                         //动态加js文件
                         if(typeof(initadmin) !="function"){
-                            $.getScript("${pageContext.request.contextPath}/js/adminx.js",function(){
+                            $.getScript("${pageContext.request.contextPath}/js/models/admin.js",function(){
                                 initadmin();
                             })
                         }else{
@@ -47,7 +47,7 @@
                         $(".layout-panel-center .panel-title").text("单位信息列表");
                         //动态加js文件
                         if(typeof(initdepartment) !="function"){
-                            $.getScript("${pageContext.request.contextPath}/js/departmentx.js",function(){
+                            $.getScript("${pageContext.request.contextPath}/js/models/department.js",function(){
                                 initdepartment();
                             })
                         }else{
@@ -60,7 +60,7 @@
                         $(".layout-panel-center .panel-title").text("教材类别信息列表");
                         //动态加js文件
                         if(typeof(initcategory) !="function"){
-                            $.getScript("${pageContext.request.contextPath}/js/categoryx.js",function(){
+                            $.getScript("${pageContext.request.contextPath}/js/models/category.js",function(){
                                 initcategory();
                             })
                         }else{
@@ -74,7 +74,7 @@
                         $(".layout-panel-center .panel-title").text("班级信息列表");
                         //动态加js文件
                         if(typeof(initclasse()) !="function"){
-                            $.getScript("${pageContext.request.contextPath}/js/classse.js",function(){
+                            $.getScript("${pageContext.request.contextPath}/js/models/classse.js",function(){
                                 initclasse();
                             })
                         }else{
@@ -88,7 +88,7 @@
                         $(".layout-panel-center .panel-title").text("教师信息列表");
                         //动态加js文件
                         if(typeof(initteacher()) !="function"){
-                            $.getScript("${pageContext.request.contextPath}/js/teacher.js",function(){
+                            $.getScript("${pageContext.request.contextPath}/js/models/teacher.js",function(){
                                 initteacher();
                             })
                         }else{
@@ -102,7 +102,7 @@
                         $(".layout-panel-center .panel-title").text("教材层次列表");
                         //动态加js文件
                         if(typeof(initlevels) !="function"){
-                            $.getScript("${pageContext.request.contextPath}/js/levels.js",function(){
+                            $.getScript("${pageContext.request.contextPath}/js/models/levels.js",function(){
                                 initlevels();
                             })
                         }else{
@@ -116,7 +116,7 @@
                         $(".layout-panel-center .panel-title").text("专业信息列表");
                         //动态加js文件
                         if(typeof(initmajor) !="function"){
-                            $.getScript("${pageContext.request.contextPath}/js/major.js",function(){
+                            $.getScript("${pageContext.request.contextPath}/js/models/major.js",function(){
                                 initmajor();
                             })
                         }else{
@@ -130,7 +130,7 @@
                         $(".layout-panel-center .panel-title").text("出版社信息列表");
                         //动态加js文件
                         if(typeof(initpublisher) !="function"){
-                            $.getScript("${pageContext.request.contextPath}/js/publisher.js",function(){
+                            $.getScript("${pageContext.request.contextPath}/js/models/publisher.js",function(){
                                 initpublisher();
                             })
                         }else{
@@ -144,7 +144,7 @@
                         $(".layout-panel-center .panel-title").text("课程信息列表");
                         //动态加js文件
                         if(typeof(initcourse()) !="function"){
-                            $.getScript("${pageContext.request.contextPath}/js/course.js",function(){
+                            $.getScript("${pageContext.request.contextPath}/js/models/course.js",function(){
                                 initcourse();
                             })
                         }else{
@@ -164,7 +164,7 @@
                         $(".layout-panel-center .panel-title").text("教材信息列表");
                         //动态加js文件
                         if(typeof(initjc) !="function"){
-                            $.getScript("${pageContext.request.contextPath}/js/jc.js",function(){
+                            $.getScript("${pageContext.request.contextPath}/js/models/jc.js",function(){
                                 initjc();
                             })
                         }else{

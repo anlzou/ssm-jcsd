@@ -27,7 +27,7 @@ public class AdminController {
     @Autowired      //该注解表示后紧跟的变量进行封装，即自动产生getter和setter
     private AdminService adminService;
 
-    @RequestMapping("/deleteall")
+    @RequestMapping("/deleteallAdmin")
     @ResponseBody
     public ServerResponse deleteall(String id) {
         System.out.println(id);
@@ -79,7 +79,7 @@ public class AdminController {
     }
 
 
-    @RequestMapping("/insertSelective")
+    @RequestMapping("/insertSelectiveAdmin")
     @ResponseBody
     public ServerResponse insertSelective(Admin record) {
         Admin admin = new Admin();
@@ -109,7 +109,7 @@ public class AdminController {
     }
 
 
-    @RequestMapping("/updateByPrimaryKeySelective")
+    @RequestMapping("/updateByPrimaryKeySelectiveAdmin")
     @ResponseBody
     public ServerResponse updateByPrimaryKeySelective(Admin record) {
         Admin admin = new Admin();
@@ -150,46 +150,13 @@ public class AdminController {
     }
 
 
-    @RequestMapping("/listall")
+    @RequestMapping("/listallAdmin")
     @ResponseBody
     public List<Admin>  listall(HttpServletRequest request, HttpServletResponse response) {
         if (Logging.logging == 1)
             return adminService.selectAll();
         return null;
     }
-
-
-//    @RequestMapping("/checkAdmin")
-//    @ResponseBody
-//    public ServerResponse checkAdmin(@Param("name") String name) {
-//        if (adminService.checkAdmin(name) > 0) {
-//            return ServerResponse.createBySuccess("可以使用管理", name);
-//        } else {
-//            return ServerResponse.createByErrorMessage("管理员信息已经");
-//        }
-//    }
-
-//    @RequestMapping("/checkEmail")
-//    @ResponseBody
-//    public ServerResponse checkEmail(String email) {
-//        System.out.println(email);
-//        if (adminService.checkEmail(email) < 0) {
-//            return ServerResponse.createBySuccess("邮箱可以使用", email);
-//        } else {
-//            return ServerResponse.createByErrorMessage("邮箱已经存在");
-//        }
-//    }
-
-
-//    @RequestMapping("/checkPhone")
-//    @ResponseBody
-//    public ServerResponse checkPhone(@Param("phone") String phone) {
-//        if (adminService.checkPhone(phone) < 0) {
-//            return ServerResponse.createBySuccess("电话可以使用", phone);
-//        } else {
-//            return ServerResponse.createByErrorMessage("已经存在");
-//        }
-//    }
 
 
     @RequestMapping("/checkNameAndPass")

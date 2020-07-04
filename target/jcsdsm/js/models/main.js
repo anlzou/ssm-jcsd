@@ -1,4 +1,5 @@
-function initlevels() {
+//表单初始化与逻辑
+function initmain(url_listall, url_delete, columns, url_insert, str_insert, url_update, str_update) {
     /*判断页面中是否存在id等于dg的元素，若存在则进行删除*/
     if ($("#dg") != null) {
         $("#dg").remove(); //删除id="dg"的元素
@@ -9,7 +10,7 @@ function initlevels() {
     /*下面采用jquery easyui的datagrie控制进行显示管理员的列表*/
     $('#dg').datagrid({
         //后台处理程序的地址
-        url: 'listallLevels',
+        url: url_listall,
         pagination: true,//显示分页工具
         pageNumber: 1,//表示显示第几页，第一页
         pageSize: 10,//表示每页显示的记录个数
@@ -18,7 +19,7 @@ function initlevels() {
             text: '添加',
             iconCls: 'icon-add',
             handler: function () {
-                levelsinsert();
+                insertmain(url_insert, str_insert);
             }
         }, '-', {
             text: '更新',
@@ -30,7 +31,7 @@ function initlevels() {
                         alert("一次只能更新一条记录");
                         return false;
                     } else {
-                        levelsupdate(row);
+                        updatemain(url_update, row, str_update);
                     }
                 } else {
                     alert("请选择你要更新数据行，才能进行更新操作");
@@ -53,7 +54,7 @@ function initlevels() {
                             if (r) { //若确认要删除，则采用异步方式把要删除的数据行对应的id串传送给后台进行处理
                                 $.ajax({
                                     type: "post",
-                                    url: "deleteallLevels",//后台处理程序
+                                    url: url_delete,//后台处理程序
                                     data: {
                                         id: strid //要删除数据行对应的id字符串
                                     },
@@ -88,28 +89,12 @@ function initlevels() {
                 alert("搜索数据");
             }
         }],
-        columns: [[{
-            field: 'id',
-            title: '编号',
-            width: 100,
-            hidden: true
-        }, {
-            field: 'name',
-            title: '教材层次名称',
-            width: 200
-        }, {
-            field: 'createTime',
-            title: '创建日期',
-            width: 200
-        }, {
-            field: 'updateTime',
-            title: '修改日期',
-            width: 200
-        }]]
+        columns: [columns]
     });
 }
 
-function levelsinsert() {
+//插入信息功能
+function insertmain(url_insert, str_insert) {
     /*判断页面中是否存在id="dd"元素，若存在则进行删除*/
     if ($("#dd") != null){
         $("#dd").remove();
@@ -118,7 +103,7 @@ function levelsinsert() {
     $("#tab").append("<div id='dd'></div>");
     /*以页面中的id="dd"的元素作为对话框的内容*/
     $('#dd').dialog({
-        title: '添加教材层次信息',//对话框的标题
+        title: '添加出版社信息',//对话框的标题
         width: 300,//对话框的宽度
         closed: false,
         cache: false,//不允许有缓冲
@@ -127,7 +112,7 @@ function levelsinsert() {
             text: '保存',
             handler: function () {
                 $('#ff').form('submit', {
-                    url: "insertSelectiveLevels",
+                    url: url_insert,
                     onSubmit: function () {
                         //在这里编写表单字段验证
                     },
@@ -144,21 +129,12 @@ function levelsinsert() {
             }
         }]
     });
-    //创建添加管理员信息表单
-    var str = ' <form id="ff" method="post">\n' +
-        '        <table>\n' +
-        '            <tr>\n' +
-        '                <td>教材层次名称</td>\n' +
-        '                <td><input type="text" id="name" name="name" /> </td>\n' +
-        '            </tr>\n' +
-        '        </table>\n' +
-        '    </form>';
-
     //把表单添加到对话框中
-    $("#dd").html(str);
+    $("#dd").html(str_insert);
 }
 
-function levelsupdate(row) {
+//更新信息功能
+function updatemain(url_update, row, str_update) {
     /*判断页面中是否存在id="dd"元素，若存在则进行删除*/
     if ($("#dd") != null) {
         $("#dd").remove();
@@ -167,7 +143,7 @@ function levelsupdate(row) {
     $("#tab").append("<div id='dd'></div>");
     /*以页面中的id="dd"的元素作为对话框的内容*/
     $('#dd').dialog({
-        title: '更新教材层次信息',//对话框的标题
+        title: '更新出版社信息',//对话框的标题
         width: 300,//对话框的宽度
         closed: false,
         cache: false,//不允许有缓冲
@@ -177,10 +153,7 @@ function levelsupdate(row) {
             handler: function () {
                 // var name_old = $('#name').val();
                 $('#ff').form('submit', {
-                    url: "updateByPrimaryKeySelectiveLevels",
-                    // data: {
-                    //     // name: name_old
-                    // },
+                    url: url_update,
                     onSubmit: function () {
                         //在这里编写表单字段验证
                     },
@@ -198,17 +171,7 @@ function levelsupdate(row) {
         }]
     });
 
-    //创建添加课程安排表单
-    var str = ' <form id="ff" method="post">\n' +
-        '        <table>\n' +
-        '            <tr>\n' +
-        '                <td>教材层次名称</td>\n' +
-        '                <td><input type="text" id="name" name="name" /><input type="hidden" id="id" name="id" /></td>\n' +
-        '            </tr>\n' +
-        '        </table>\n' +
-        '    </form>';
-
     //把表单添加到对话框中
-    $("#dd").html(str);
+    $("#dd").html(str_update);
     $('#ff').form('load', row[0]);//为表单加载数据。
 }

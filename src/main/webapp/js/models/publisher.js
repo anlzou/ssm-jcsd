@@ -1,6 +1,14 @@
 function initpublisher() {
-    var listall_url = 'listallPublisher';
-    var delete_url = "deleteallPublisher"
+    //查询控制器
+    var url_listall = "listallPublisher";
+    //删除控制器
+    var url_delete = "deleteallPublisher";
+    //插入控制器
+    var url_insert = "insertSelectivePublisher";
+    //更新控制器
+    var url_update = "updateByPrimaryKeySelectivePublisher";
+
+    //显示信息表单
     var columns = [{
         field: 'id',
         title: '编号',
@@ -8,13 +16,12 @@ function initpublisher() {
         hidden: true
     }, {
         field: 'name',
-        title: '专业名称',
+        title: '出版社名称',
         width: 200
     }];
 
-    var insert_url = "insertSelectivePublisher";
-    //创建添加管理员信息表单
-    var str1 = ' <form id="ff" method="post">\n' +
+    //创建信息表单
+    var str_insert = ' <form id="ff" method="post">\n' +
         '        <table>\n' +
         '            <tr>\n' +
         '                <td>出版社的名称</td>\n' +
@@ -23,9 +30,8 @@ function initpublisher() {
         '        </table>\n' +
         '    </form>';
 
-    var update_url = "updateByPrimaryKeySelectivePublisher";
-    //创建添加课程安排表单
-    var str2 = ' <form id="ff" method="post">\n' +
+    //更新信息表单
+    var str_update = ' <form id="ff" method="post">\n' +
         '        <table>\n' +
         '            <tr>\n' +
         '                <td>出版社的名称</td>\n' +
@@ -34,6 +40,6 @@ function initpublisher() {
         '        </table>\n' +
         '    </form>';
 
-    //调用功能
-    initmain(listall_url, delete_url, columns, insert_url, str1, update_url, str2);
+    //调用动态功能
+    initmain(url_listall, url_delete, columns, url_insert, str_insert, url_update, str_update);
 }
