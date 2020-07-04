@@ -1,5 +1,5 @@
 //表单初始化与逻辑
-function initmain(url_listall, url_delete, columns, url_insert, str_insert, url_update, str_update) {
+function initmain(url_listall, url_delete, columns, url_insert, str_insert, title_insert, url_update, str_update, title_update) {
     /*判断页面中是否存在id等于dg的元素，若存在则进行删除*/
     if ($("#dg") != null) {
         $("#dg").remove(); //删除id="dg"的元素
@@ -19,7 +19,7 @@ function initmain(url_listall, url_delete, columns, url_insert, str_insert, url_
             text: '添加',
             iconCls: 'icon-add',
             handler: function () {
-                insertmain(url_insert, str_insert);
+                insertmain(url_insert, str_insert, title_insert);
             }
         }, '-', {
             text: '更新',
@@ -31,7 +31,7 @@ function initmain(url_listall, url_delete, columns, url_insert, str_insert, url_
                         alert("一次只能更新一条记录");
                         return false;
                     } else {
-                        updatemain(url_update, row, str_update);
+                        updatemain(url_update, row, str_update, title_update);
                     }
                 } else {
                     alert("请选择你要更新数据行，才能进行更新操作");
@@ -94,7 +94,7 @@ function initmain(url_listall, url_delete, columns, url_insert, str_insert, url_
 }
 
 //插入信息功能
-function insertmain(url_insert, str_insert) {
+function insertmain(url_insert, str_insert, title_insert) {
     /*判断页面中是否存在id="dd"元素，若存在则进行删除*/
     if ($("#dd") != null){
         $("#dd").remove();
@@ -103,7 +103,7 @@ function insertmain(url_insert, str_insert) {
     $("#tab").append("<div id='dd'></div>");
     /*以页面中的id="dd"的元素作为对话框的内容*/
     $('#dd').dialog({
-        title: '添加出版社信息',//对话框的标题
+        title: title_insert,//对话框的标题
         width: 300,//对话框的宽度
         closed: false,
         cache: false,//不允许有缓冲
@@ -134,7 +134,7 @@ function insertmain(url_insert, str_insert) {
 }
 
 //更新信息功能
-function updatemain(url_update, row, str_update) {
+function updatemain(url_update, row, str_update, title_update) {
     /*判断页面中是否存在id="dd"元素，若存在则进行删除*/
     if ($("#dd") != null) {
         $("#dd").remove();
@@ -143,7 +143,7 @@ function updatemain(url_update, row, str_update) {
     $("#tab").append("<div id='dd'></div>");
     /*以页面中的id="dd"的元素作为对话框的内容*/
     $('#dd').dialog({
-        title: '更新出版社信息',//对话框的标题
+        title: title_update,//对话框的标题
         width: 300,//对话框的宽度
         closed: false,
         cache: false,//不允许有缓冲

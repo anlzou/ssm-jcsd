@@ -48,6 +48,9 @@ function initmajor() {
         '        </table>\n' +
         '    </form>';
 
+    var title_insert = "插入专业信息";
+    var title_update = "更新专业信息";
+
     //调用动态功能
-    initmain(url_listall, url_delete, columns, url_insert, str_insert, url_update, str_update);
+    initmain(url_listall, url_delete, columns, url_insert, str_insert, title_insert, url_update, str_update, title_update);
 }

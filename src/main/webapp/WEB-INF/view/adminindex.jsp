@@ -161,7 +161,7 @@
                     /*单击导航栏中的教材征订信息列表结点*/
                     if (node.id == "jclist") {
                         /*单击教材征订信息列表时把中间区域的标题设置为教材征订信息列表*/
-                        $(".layout-panel-center .panel-title").text("教材信息列表");
+                        $(".layout-panel-center .panel-title").text("课程安排信息列表");
                         //动态加js文件
                         if(typeof(initjc) !="function"){
                             $.getScript("${pageContext.request.contextPath}/js/models/jc.js",function(){
