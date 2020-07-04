@@ -71,9 +71,7 @@ public class CategoryController {
         category.setId(record.getId());//更新操作必须要有id主关键字段
         category.setName(record.getName());
         System.out.println("category更新数据==" + category.getId() + "==" + category.getName());
-//        System.out.println("name_old:+"+name_old);
-//        if (categoryService.updateByPrimaryName(name_old,category.getName()) > 0) {
-        if (categoryService.updateByPrimaryKeySelective(category) > 0) {
+        if (categoryService.updateByPrimaryKey(category) > 0) {
             System.out.println("category表更新成功");
             return ServerResponse.createBySuccess("更新管理数据成功", record);
         } else {

@@ -31,7 +31,6 @@
     insert into classse (name, major_id, major_name, student_number, create_time, update_time)
     values (#{name,jdbcType=VARCHAR}, #{majorId,jdbcType=INTEGER}, #{majorName,jdbcType=VARCHAR}, 
       #{studentNumber,jdbcType=INTEGER}, now(), now())
-
   </insert>
   <insert id="insertSelective" parameterType="qin.com.entity.Classse" >
     <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
@@ -79,45 +78,45 @@
       </if>
     </trim>
   </insert>
-<!-- 更新 -->
-  <update id="updateByPrimaryKeySelective" parameterType="qin.com.entity.Classse" >
-    update classse
-    <set >
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="majorId != null" >
-        major_id = #{majorId,jdbcType=INTEGER},
-      </if>
-      <if test="majorName != null" >
-        major_name = #{majorName,jdbcType=VARCHAR},
-      </if>
-      <if test="studentNumber != null" >
-        student_number = #{studentNumber,jdbcType=INTEGER},
-      </if>
-      <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateTime != null" >
-        update_time = now(),
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+
+<!--  <update id="updateByPrimaryKeySelective" parameterType="qin.com.entity.Classse" >-->
+<!--    update classse-->
+<!--    <set >-->
+<!--      <if test="name != null" >-->
+<!--        name = #{name,jdbcType=VARCHAR},-->
+<!--      </if>-->
+<!--      <if test="majorId != null" >-->
+<!--        major_id = #{majorId,jdbcType=INTEGER},-->
+<!--      </if>-->
+<!--      <if test="majorName != null" >-->
+<!--        major_name = #{majorName,jdbcType=VARCHAR},-->
+<!--      </if>-->
+<!--      <if test="studentNumber != null" >-->
+<!--        student_number = #{studentNumber,jdbcType=INTEGER},-->
+<!--      </if>-->
+<!--      <if test="createTime != null" >-->
+<!--        create_time = #{createTime,jdbcType=TIMESTAMP},-->
+<!--      </if>-->
+<!--      <if test="updateTime != null" >-->
+<!--        update_time = now(),-->
+<!--      </if>-->
+<!--    </set>-->
+<!--    where id = #{id,jdbcType=INTEGER}-->
+<!--  </update>-->
+  <!-- 更新 -->
   <update id="updateByPrimaryKey" parameterType="qin.com.entity.Classse" >
     update classse
     set name = #{name,jdbcType=VARCHAR},
       major_id = #{majorId,jdbcType=INTEGER},
       major_name = #{majorName,jdbcType=VARCHAR},
       student_number = #{studentNumber,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
 
   <!--查询所有内容-->
   <select id="selectAll" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-        select id,name,major_id,major_name,student_number
+        select *
             from classse
     </select>
 

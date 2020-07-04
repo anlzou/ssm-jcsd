@@ -76,9 +76,7 @@ public class ClassseController {
         classse.setMajorName(record.getMajorName());
         classse.setStudentNumber(record.getStudentNumber());
         System.out.println("Classse更新数据==" + classse.getId() + "==" + classse.getName());
-//        System.out.println("name_old:+"+name_old);
-//        if (categoryService.updateByPrimaryName(name_old,category.getName()) > 0) {
-        if (classesService.updateByPrimaryKeySelective(classse) > 0) {
+        if (classesService.updateByPrimaryKey(classse) > 0) {
             System.out.println("Classse表更新成功");
             return ServerResponse.createBySuccess("更新管理数据成功", record);
         } else {

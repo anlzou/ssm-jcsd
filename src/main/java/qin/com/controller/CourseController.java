@@ -75,9 +75,7 @@ public class CourseController {
         course.setPeriod(record.getPeriod());
         course.setNature(record.getNature());
         System.out.println("Course更新数据==" + course.getId() + "==" + course.getName());
-//        System.out.println("name_old:+"+name_old);
-//        if (categoryService.updateByPrimaryName(name_old,category.getName()) > 0) {
-        if (courseService.updateByPrimaryKeySelective(course) > 0) {
+        if (courseService.updateByPrimaryKey(course) > 0) {
             System.out.println("Course表更新成功");
             return ServerResponse.createBySuccess("更新管理数据成功", record);
         } else {

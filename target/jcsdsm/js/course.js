@@ -109,6 +109,14 @@ function initcourse() {
             field: 'nature',
             title: '课程类型',
             width: 200
+        }, {
+            field: 'createTime',
+            title: '创建日期',
+            width: 200
+        }, {
+            field: 'updateTime',
+            title: '修改日期',
+            width: 200
         }]]
     });
 }

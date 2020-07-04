@@ -109,6 +109,14 @@ function initclasse() {
             field: 'studentNumber',
             title: '班级学生人数',
             width: 200
+        }, {
+            field: 'createTime',
+            title: '创建日期',
+            width: 200
+        }, {
+            field: 'updateTime',
+            title: '修改日期',
+            width: 200
         }]]
     });
 }

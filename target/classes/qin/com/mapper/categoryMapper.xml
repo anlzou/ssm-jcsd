@@ -73,7 +73,6 @@
     <update id="updateByPrimaryKey" parameterType="qin.com.entity.Category">
     update category
     set name = #{name,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
