@@ -12,6 +12,8 @@ import qin.com.entity.Major;
 import qin.com.mapper.MajorMapper;
 import qin.com.service.MajorService;
 
+import java.util.List;
+
 @Service("majorServiceImpl")  //注解为业务类，并且方便在控制器中注入我们这个业务类
 public class MajorServiceImpl implements MajorService {
     @Autowired
@@ -46,5 +48,15 @@ public class MajorServiceImpl implements MajorService {
     @Override
     public int updateByPrimaryKey(Major record) {
         return majorMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<Major> selectAll() {
+        return majorMapper.selectAll();
+    }
+
+    @Override
+    public int deleteByList(String[] deleteids) {
+        return majorMapper.deleteByList(deleteids);
     }
 }

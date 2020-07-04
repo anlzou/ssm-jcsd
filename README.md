@@ -12,12 +12,12 @@
 [generator.xml](src/resource/generator.xml)
 
 ### 注意
-~~数据库所有表的日期字段不为0才可以查询数据~~
+数据库表的日期字段不为0才可以查询出时间数据
 
 ### 补充
 ~~1. 日期未处理和使用~~
 解决方法：
 
-更改数据库驱动使用为`url=jdbc:mysql://localhost:3306/jcsd?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull`
+更改数据库连接url为`url=jdbc:mysql://localhost:3306/jcsd?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull`
 
 2. 数据库中sd_datetime字段类型为varchar，应该给改为data类型。

@@ -16,6 +16,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/department.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jc.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/levels.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/major.js"></script>
     <script type="text/javascript">
         $(function () {
             /*jquery easyui的代码在这里写*/
@@ -99,6 +100,14 @@
                     if (node.id == "majorlist") {
                         /*单击教材类别信息列表时把中间区域的标题设置为教材类别信息列表*/
                         $(".layout-panel-center .panel-title").text("专业信息列表");
+                        //动态加js文件
+                        if(typeof(initmajor) !="function"){
+                            $.getScript("${pageContext.request.contextPath}/js/major.js",function(){
+                                initmajor();
+                            })
+                        }else{
+                            initmajor();
+                        }
                     }
 
                     /*单击导航栏中的出版社信息列表结点*/

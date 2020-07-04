@@ -1,6 +1,5 @@
 package qin.com.service;
 
-import org.apache.ibatis.annotations.Param;
 import qin.com.entity.Levels;
 
 import java.util.List;
