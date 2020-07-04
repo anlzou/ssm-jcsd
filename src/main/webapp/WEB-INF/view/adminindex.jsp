@@ -10,6 +10,8 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/easyui-lang-zh_CN.js"></script>
     <%--  各个模块的动态功能  --%>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/main.js"></script>
+    <%--  各个模块变量  --%>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/adminx.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/categoryx.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/classse.js"></script>
